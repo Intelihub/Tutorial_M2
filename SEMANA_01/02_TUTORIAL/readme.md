@@ -26,7 +26,7 @@ O tutorial é composto de 7 etapas que mostram progressivamente a construção d
 
 Essa etapa tem por objetivo testar a instalação do Node.js, Sqlite3, verificar se está funcionando corretamente e também as feramentas necessárias para desenvolvimento do projeto
 
-### Instruções
+### Passo-a-passo
 
 #### Instalações
 
