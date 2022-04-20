@@ -50,8 +50,11 @@ Essa etapa tem por objetivo testar a instalação do Node.js, Sqlite3, verificar
 	`Etapa 1 - INSTALACAO - Servidor Node.js`
 
 	`Meu servidor NODE.js funciona!`
-
+	
 3. Semelhante ao feito em `2`, execute:
+
+	\* Para executar os comandos a seguir na mesma janela do terminal, você pode encerrar o processo iniciado pelo comando node do passo `2` utilizando o atalho `CTRL + C` pode ser utilizado! PS: note que, dessa forma, o resultado do passo 2 não estará mais disponível (link [http://127.0.0.1:3011/](http://127.0.0.1:3011/) não funcionará mais), pois o servidor que estava rodando na porta 3011 foi encerrado.
+
 
 	`npm install sqlite3`
 
