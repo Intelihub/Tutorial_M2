@@ -6,7 +6,7 @@ Essa etapa tem por objetivo testar a instalação do Node.js, Sqlite3, verificar
 
 ### Instalações
 
-1. Baixar e instalar o Node.js: [https://nodejs.org/pt-br/]()
+1. Baixar e instalar o Node.js: [https://nodejs.org/pt-br/](https://nodejs.org/pt-br/)
 2. Baixar e instalar o DB Browser for SQLite: [https://sqlitebrowser.org/]()
 3. Baixar e instalar o Postman: [https://www.postman.com/downloads/]()
 4. Baixar e instalar o VS Code:  [https://code.visualstudio.com/download]()
