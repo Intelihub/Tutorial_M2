@@ -19,17 +19,15 @@ Essa etapa tem por objetivo testar a instalação do Node.js, Sqlite3, verificar
 
 7. GitHub:
   
-   > * Baixar e instalar o GitHub Desktop se ainda não a tiver instalada
+   > \* Baixar e instalar o GitHub Desktop se ainda não a tiver instalada
 
    > 1. Clonar este repositório repositório (File-Clone Repository) na sua máquina (aba URL da tela de "Clone Repository") [https://github.com/Intelihub/Tutorial_M2/](https://github.com/Intelihub/Tutorial_M2/) escolhendo um diretório (pasta) do seu computador para que esse repositório do git seja clonado (Ex: C:\MODULO02_TUTORIAL).
 
-   > 2. Clonar o seguinte repositório (File-Clone Repository) na sua maquina (aba URL da tela de "Clone Repository")  [https://github.com/Intelihub/Template_Aluno](https://github.com/Intelihub/Template_Aluno), escolhendo um diretório (pasta) do seu computador para que esse repositório do git seja clonado (Ex: C:\MODULO02_MEUGIT).
+   > \* Criar conta pessoal (com e-mail Inteli) ou entrar na sua conta se já a tiver
 
-   > 3. Criar conta pessoal (com e-mail Inteli) ou entrar na sua conta se já a tiver
+   > 2. Fork do repositório [https://github.com/Intelihub/Template_Aluno](https://github.com/Intelihub/Template_Aluno), dando o nome `modulo2`.
 
-   > 4. Criar um repositório SEU, na sua conta do GitHub, e cloná-lo também na sua máquina.
-
-   > 5. Replicar o conteúdo do Template_Aluno no seu novo repositório do Git.
+   > 3. Clone esse repositório `modulo2` na sua máquina.
 
 
 ### Instruções
