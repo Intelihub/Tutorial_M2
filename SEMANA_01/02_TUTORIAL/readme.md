@@ -85,7 +85,7 @@ dbUser.db
 
 1 - node app\_11.js
 
-**Resultado no NAVEGADOR:** <http://127.0.0.1:3001/>
+**Resultado no NAVEGADOR:** <http://127.0.0.1:3011/>
 
 Etapa 0 - INSTALACAO - Servidor Node.js
 
@@ -93,7 +93,7 @@ Meu servidor NODE.js funciona!
 
 2 - node app\_12.js
 
-**Resultado no NAVEGADOR:** <http://127.0.0.1:3002/>
+**Resultado no NAVEGADOR:** <http://127.0.0.1:3012/>
 
 `	`Etapa 0 - INSTALACAO
 
@@ -103,7 +103,7 @@ Usuario de teste lido com sucesso
 
 3 - node app\_13.js
 
-**Resultado no NAVEGADOR:** <http://127.0.0.1:3003/?nome=andre>
+**Resultado no NAVEGADOR:** <http://127.0.0.1:3013/?nome=andre>
 
 ` 	`Etapa 0 - INSTALACAO - EndPoint "GET"
 
