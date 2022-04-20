@@ -1,34 +1,10 @@
-# Desenvolvimento de aplicação web
-
-## Descrição
-
-Esse tutorial tem por objetivo demonstrar passo a passo a construção de uma aplicação simples, estruturada em duas partes: front-end e back-end.
-
-O front-end é a parte que o usuário visualiza. O back-end é a comunicação com a base de dados. Ambas partes estão conectadas.
-
-O tutorial é composto de 7 etapas que mostram progressivamente a construção da aplicação.
-
-## Conceitos básicos
-
-- **HTTP: Hypertext Transfer Protocol** - protocolo para troca de dados na Web através de mensagens ("requests"). Exemplos de mensagens HTTP são GET, POST, PUT e DELETE.
-- **URL: Uniform Resource Locator** - endereço web de recurso informático. Exemplo: quando se digita um determinado site em um navegador (Chrome, Edge, etc.), esse endereço é a URL e ao se pressionar ENTER está sendo feita uma requisição GET para o recurso dessa URL.
-- **API: Application Programming Interface** - camada de comunicação para que recursos de uma aplicação possam ser utilizados por outra aplicação.
-- **REST: Representational State Transfer** - arquitetura usada por APIs através de mensagens HTTP.
-- **RESTfull** - expressão gramatical da capacidade de ser REST
-- **Webservice** - é um tipo de API, que usa recursos da rede. Uma API RESTfull é um webservice.
-- **Endpoint** - cada um dos pontos de uma API. Um endpoint é representado por uma URL (recurso) e um método (exemplos: GET, POST, PUT e DELETE). Uma API possui vários endpoints.
-- **JavaScript** - linguagem de programação utilizada em aplicações web.
-- **JSON - JavaScript Object Notation** - formato para troca de dados que usa o conceito chave: valor. Exemplo: {nome: "João", idade: 24}
-- **JQuery** - biblioteca de funções do JavaScript.
-- **Bootstrap** - biblioteca para desenvolvimento de front-ends web.
-
-## Etapa 1 - Setup do ambiente
+# Etapa 1 - Setup do ambiente
 
 Essa etapa tem por objetivo testar a instalação do Node.js, Sqlite3, verificar se está funcionando corretamente e também as feramentas necessárias para desenvolvimento do projeto
 
-### Passo-a-passo
+## Passo-a-passo
 
-#### Instalações
+### Instalações
 
 1. Baixar e instalar o Node.js: [https://nodejs.org/pt-br/]()
 2. Baixar e instalar o DB Browser for SQLite: [https://sqlitebrowser.org/]()
@@ -49,7 +25,7 @@ Essa etapa tem por objetivo testar a instalação do Node.js, Sqlite3, verificar
 
    > 4. Clonar o seguinte repositório (File-Clone Repository) na sua maquina local (aba URL) [https://github.com/Intelihub/Template_Aluno](), escolhendo um diretório (pasta) do seu computador para que esse repositório do git seja clonado (Ex: C:\MODULO02_MEUGIT).
 
-#### Instruções
+### Instruções
 
 1. Copie os arquivos abaixo **deste** diretório para pasta \SEMANA\_01\02\_TUTORIAL do **seu** GitHub
    
