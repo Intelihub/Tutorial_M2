@@ -30,29 +30,26 @@ Essa etapa tem por objetivo testar a instalação do Node.js, Sqlite3, verificar
 
 1. Copie os arquivos abaixo **deste** diretório para pasta \SEMANA\_01\02\_TUTORIAL do **seu** GitHub
    
-	`app\_11.js`
-	
-	`app\_12.js`
-	
-	`app\_13.js`
-	
-	`dbUser.db`
+	- `app_11.js`
+	- `app_12.js`
+	- `app_13.js`
+	- `dbUser.db`
 
-2. Abra o "Prompt de Comando" (Windows) ou "Terminal" (Mac) no modo Administrator no diretório acima e digite:
+2. Abra o "Prompt de Comando" (Windows) ou "Terminal" (Mac) no modo Administrator no diretório acima e execute:
 
-	`node app\_11.js`
+	`node app_11.js`
 
-	**Resultado no NAVEGADOR:** [http://127.0.0.1:3001/]()
+	**Confira o resultado no NAVEGADOR:** [http://127.0.0.1:3011/]()
 
 	`Etapa 0 - INSTALACAO - Servidor Node.js`
 
 	`Meu servidor NODE.js funciona!`
 
-3. Semelhante ao feito em `2`, digite:
+3. Semelhante ao feito em `2`, execute:
 
-  	`node app\_12.js`
+  	`node app_12.js`
    
-	**Resultado no NAVEGADOR:** [http://127.0.0.1:3002/]()
+	**Confira o resultado no NAVEGADOR:** [http://127.0.0.1:3012/]()
 
 	`Etapa 0 - INSTALACAO`
    
@@ -60,11 +57,11 @@ Essa etapa tem por objetivo testar a instalação do Node.js, Sqlite3, verificar
    
 	`Usuario de teste lido com sucesso`
 
-4. Semelhante ao feito em `2` e `3`, digite:
+4. Semelhante ao feito em `2` e `3`, execute:
 
-	`node app\_13.js`
+	`node app_13.js`
 
-	**Resultado no NAVEGADOR:** [http://127.0.0.1:3003/?nome=andre]()
+	**Confira o resultado no NAVEGADOR:** [http://127.0.0.1:3013/?nome=andre]()
 	
 	`Etapa 0 - INSTALACAO - EndPoint "GET"`
    
