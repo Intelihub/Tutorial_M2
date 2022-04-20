@@ -28,14 +28,16 @@ Essa etapa tem por objetivo testar a instalação do Node.js, Sqlite3, verificar
 
 ### Instruções
 
-1. Copie os arquivos abaixo **deste** diretório para pasta \SEMANA\_01\02\_TUTORIAL do **seu** GitHub
+1. Copie os arquivos abaixo **deste** diretório para pasta `SEMANA_01/02_TUTORIAL` do **seu** GitHub:
    
 	- `app_11.js`
 	- `app_12.js`
 	- `app_13.js`
 	- `dbUser.db`
 
-2. Abra o "Prompt de Comando" (Windows) ou "Terminal" (Mac) no modo Administrator no diretório acima e execute:
+2. Abra o "Prompt de Comando" (Windows) no modo Administrator ou "Terminal" (Mac), navegue até o diretório `SEMANA_01/02_TUTORIAL` do **seu** GitHub e execute:
+
+	`npm install sqlite3`
 
 	`node app_11.js`
 
