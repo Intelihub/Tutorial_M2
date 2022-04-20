@@ -18,13 +18,19 @@ Essa etapa tem por objetivo testar a instalação do Node.js, Sqlite3, verificar
    `npm install express –save`
 
 7. GitHub:
-   > 1. Criar conta pessoal (com e-mail Inteli)
   
-   > 2. Baixar e instalar o GitHub Desktop
+   > * Baixar e instalar o GitHub Desktop se ainda não a tiver instalada
 
-   > 3. Clonar este repositório repositório (File-Clone Repository) na sua maquina local (aba URL) [https://github.com/Intelihub/Tutorial_M2/]() escolhendo um diretório (pasta) do seu computador para que esse repositório do git seja clonado (Ex: C:\MODULO02_TUTORIAL).
+   > 1. Clonar este repositório repositório (File-Clone Repository) na sua máquina (aba URL da tela de "Clone Repository") [https://github.com/Intelihub/Tutorial_M2/](https://github.com/Intelihub/Tutorial_M2/) escolhendo um diretório (pasta) do seu computador para que esse repositório do git seja clonado (Ex: C:\MODULO02_TUTORIAL).
 
-   > 4. Clonar o seguinte repositório (File-Clone Repository) na sua maquina local (aba URL) [https://github.com/Intelihub/Template_Aluno](), escolhendo um diretório (pasta) do seu computador para que esse repositório do git seja clonado (Ex: C:\MODULO02_MEUGIT).
+   > 2. Clonar o seguinte repositório (File-Clone Repository) na sua maquina (aba URL da tela de "Clone Repository")  [https://github.com/Intelihub/Template_Aluno](https://github.com/Intelihub/Template_Aluno), escolhendo um diretório (pasta) do seu computador para que esse repositório do git seja clonado (Ex: C:\MODULO02_MEUGIT).
+
+   > 3. Criar conta pessoal (com e-mail Inteli) ou entrar na sua conta se já a tiver
+
+   > 4. Criar um repositório SEU, na sua conta do GitHub, e cloná-lo também na sua máquina.
+
+   > 5. Replicar o conteúdo do Template_Aluno no seu novo repositório do Git.
+
 
 ### Instruções
 
