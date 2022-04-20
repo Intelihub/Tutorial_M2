@@ -37,8 +37,6 @@ Essa etapa tem por objetivo testar a instalação do Node.js, Sqlite3, verificar
 
 2. Abra o "Prompt de Comando" (Windows) no modo Administrator ou "Terminal" (Mac), navegue até o diretório `SEMANA_01/02_TUTORIAL` do **seu** GitHub e execute:
 
-	`npm install sqlite3`
-
 	`node app_11.js`
 
 	**Confira o resultado no NAVEGADOR:** [http://127.0.0.1:3011/]()
@@ -48,6 +46,8 @@ Essa etapa tem por objetivo testar a instalação do Node.js, Sqlite3, verificar
 	`Meu servidor NODE.js funciona!`
 
 3. Semelhante ao feito em `2`, execute:
+
+	`npm install sqlite3`
 
   	`node app_12.js`
    
