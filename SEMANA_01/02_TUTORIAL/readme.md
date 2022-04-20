@@ -41,7 +41,7 @@ Essa etapa tem por objetivo testar a instalação do Node.js, Sqlite3, verificar
 
 	**Confira o resultado no NAVEGADOR:** [http://127.0.0.1:3011/]()
 
-	`Etapa 0 - INSTALACAO - Servidor Node.js`
+	`Etapa 1 - INSTALACAO - Servidor Node.js`
 
 	`Meu servidor NODE.js funciona!`
 
@@ -53,7 +53,7 @@ Essa etapa tem por objetivo testar a instalação do Node.js, Sqlite3, verificar
    
 	**Confira o resultado no NAVEGADOR:** [http://127.0.0.1:3012/]()
 
-	`Etapa 0 - INSTALACAO`
+	`Etapa 1 - INSTALACAO`
    
 	`Servidor de Banco de Dados SQLite3`
    
@@ -65,7 +65,7 @@ Essa etapa tem por objetivo testar a instalação do Node.js, Sqlite3, verificar
 
 	**Confira o resultado no NAVEGADOR:** [http://127.0.0.1:3013/?nome=andre]()
 	
-	`Etapa 0 - INSTALACAO - EndPoint "GET"`
+	`Etapa 1 - INSTALACAO - EndPoint "GET"`
    
 	`Hello andre voce conseguiu um GET! bem sucedido`
 
