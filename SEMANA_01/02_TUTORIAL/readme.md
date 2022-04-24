@@ -15,7 +15,7 @@ Essa etapa tem por objetivo testar a instalação do Node.js, Sqlite3, verificar
 
    `npm install sqlite3`
    
-   `npm install express –save`
+   `npm install express --save`
 
 7. GitHub:
   
@@ -25,7 +25,9 @@ Essa etapa tem por objetivo testar a instalação do Node.js, Sqlite3, verificar
 
    > \* Criar conta pessoal (com e-mail Inteli) ou entrar na sua conta se já a tiver
 
-   > 2. Fork do repositório [https://github.com/Intelihub/Template_Aluno](https://github.com/Intelihub/Template_Aluno), dando o nome `modulo2`.
+   > 2. Fork do repositório Template: [https://github.com/Intelihub/Template_Aluno](https://github.com/Intelihub/Template_Aluno), dando o nome `modulo2`.
+   
+   > \* Indicamos usar a versão web do Github para fazer a cópia desse diretório do Template que cada aluno deve ter no seu repositório individual (1.acesse o repositório do link supracitado; 2. clique no botão `Fork` ou `Garfo`, se seu Github estiver em português, localizado no canto superior direito da página, logo abaixo da barra de menu do Github; e 3. dê o nome de `modulo 2` para o novo repositório).
 
    > 3. Clone esse repositório `modulo2` na sua máquina.
 
