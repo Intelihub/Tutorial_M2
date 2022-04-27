@@ -1,4 +1,4 @@
-# Etapa 2 - Servidor de página e Bootstrap
+# Etapa teste 2 - Servidor de página e Bootstrap
 
 Essa etapa tem por objetivo mostrar como disponibilizar páginas web para o usuário por um servidor, incluindo a disponibilização de todo conteúdo existente dentro do diretório
 
