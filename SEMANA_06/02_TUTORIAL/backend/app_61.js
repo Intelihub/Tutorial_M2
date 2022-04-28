@@ -1,24 +1,24 @@
-
 const express = require('express'); 
 const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 const hostname = '127.0.0.1';
 
-/* Servidor do Banco de Dados */
-const portback = 3071;
+const port = 3061;
 const sqlite3 = require('sqlite3').verbose();
-const server = express();
-const DBPATH = 'src/dbUser.db';
+const app = express();
+const DBPATH = 'dbUser.db';
 
-server.use(express.json());
+app.use(express.static("../frontend/"));
+
+app.use(express.json());
 
 
 /* Definição dos endpoints */
 
-/******** CRUD ************/
+/****** CRUD ******************************************************************/
 
 // Retorna todos registros (é o R do CRUD - Read)
-server.get('/users', (req, res) => {
+app.get('/users', (req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
@@ -34,7 +34,7 @@ server.get('/users', (req, res) => {
 });
 
 // Insere um registro (é o C do CRUD - Create)
-server.post('/userinsert', urlencodedParser, (req, res) => {
+app.post('/userinsert', urlencodedParser, (req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
@@ -50,9 +50,9 @@ server.post('/userinsert', urlencodedParser, (req, res) => {
 });
 
 // Atualiza um registro (é o U do CRUD - Update)
-server.post('/userupdate', urlencodedParser, (req, res) => {
+app.post('/userupdate', urlencodedParser, (req, res) => {
 	res.statusCode = 200;
-	//res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
 	sql = "UPDATE tbUser SET title = '" + req.body.title + "' WHERE userId = " + req.body.userId;
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
@@ -66,7 +66,7 @@ server.post('/userupdate', urlencodedParser, (req, res) => {
 });
 
 // Exclui um registro (é o D do CRUD - Delete)
-server.post('/userdelete', urlencodedParser, (req, res) => {
+app.post('/userdelete', urlencodedParser, (req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
@@ -83,6 +83,6 @@ server.post('/userdelete', urlencodedParser, (req, res) => {
 
 
 /* Inicia o servidor */
-server.listen(portback, hostname, () => {
-  console.log(`BD server running at http://${hostname}:${portback}/`);
+app.listen(port, hostname, () => {
+  console.log(`BD server running at http://${hostname}:${port}/`);
 });

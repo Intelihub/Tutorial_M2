@@ -1,16 +1,16 @@
-
 const express = require('express'); 
 const hostname = '127.0.0.1';
 
-/* Servidor do Banco de Dados */
-const portback = 3051;
+const port = 3051;
 const sqlite3 = require('sqlite3').verbose(); 
-const server = express();
-const DBPATH = 'src/dbUser.db';
+const app = express();
+const DBPATH = 'dbUser.db';
 
-server.use(express.json())
+app.use(express.static("../frontend/"));
 
-server.get('', (req, res) => {
+app.use(express.json())
+
+app.get('/user1', (req, res) => {
   res.statusCode = 200;
   //res.setHeader('Content-Type', 'text/html');
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -28,6 +28,7 @@ server.get('', (req, res) => {
    });
 });
 
-server.listen(portback, hostname, () => {
-  console.log(`BD server running at http://${hostname}:${portback}/`);
+/* Inicia o servidor */
+app.listen(port, hostname, () => {
+  console.log(`BD server running at http://${hostname}:${port}/`);
 });
