@@ -34,7 +34,7 @@ Essa etapa tem por objetivo testar a instalação do Node.js, Sqlite3, verificar
 
 ### Instruções
 
-1. Copie os arquivos abaixo **deste** diretório para pasta `SEMANA_01/02_TUTORIAL` do **seu** GitHub:
+1. Copie os arquivos abaixo **deste** diretório para pasta `02_TUTORIAL/Semana 1` do **seu** GitHub:
    
 	- `app_11.js`
 	- `app_12.js`
@@ -53,7 +53,7 @@ Essa etapa tem por objetivo testar a instalação do Node.js, Sqlite3, verificar
 	
 3. Semelhante ao feito em `2`, execute:
 
-	\* Para executar os comandos a seguir na mesma janela do terminal, você pode encerrar o processo iniciado pelo comando node do passo `2` utilizando o atalho `CTRL + C` pode ser utilizado! PS: note que, dessa forma, o resultado do passo 2 não estará mais disponível (link [http://127.0.0.1:3011/](http://127.0.0.1:3011/) não funcionará mais), pois o servidor que estava rodando na porta 3011 foi encerrado.
+	\* Para executar os comandos a seguir na mesma janela do terminal, você pode encerrar o processo iniciado pelo comando do passo `2` utilizando o atalho `CTRL + C`! Note que, dessa forma, o resultado do passo 2 não estará mais disponível (link [http://127.0.0.1:3011/](http://127.0.0.1:3011/) não funcionará mais), pois o servidor que estava rodando na porta 3011 terá sido encerrado.
 
 
 	`npm install sqlite3`
