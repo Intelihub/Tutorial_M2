@@ -4,6 +4,6 @@ Sabendo-se que hmax é a altura máxima que um objeto consegue atingir, e que V0
  
 Seguem as fórmulas para o cálculo:
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;t_s=frac{V_0}{g}" title="\Large t_s=frac{V_0}{g}" />
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;h_{máx}=frac{V_0^2}{2g}" title="\Large h_{máx}=frac{V_0^2}{2g}" />
+<img src="https://render.githubusercontent.com/render/math?t_s=frac{V_0}{g}"/>
+<img src="https://render.githubusercontent.com/render/math?h_{máx}=frac{V_0^2}{2g}"/>
 
