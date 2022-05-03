@@ -47,6 +47,7 @@ Considerando arquivos presentes no **seu diretório desta etapa**:
 	``` 
 	por:
 	```html
+	<script src="script.js"></script>
 	<div id="main">
 	<h1>ETAPA 3</h1>
 	Introdução a Javascript
