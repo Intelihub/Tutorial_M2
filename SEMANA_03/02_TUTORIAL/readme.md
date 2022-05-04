@@ -39,6 +39,8 @@ Considerando arquivos presentes no **seu diretório desta etapa**:
 	por:
 	```html 
 	<title>ETAPA 3</title>
+	<link rel="stylesheet" href="style.css" />	
+	<script src="script.js"></script>
 	```
 	1.2. Substitua:
 	```html
