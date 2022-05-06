@@ -51,7 +51,6 @@ Considerando arquivos presentes no **seu diretório desta etapa**:
 	``` 
 	por:
 	```html
-	<script src="script.js"></script>
 	<div id="main">
 	<h1>ETAPA 3</h1>
 	Introdução a Javascript
@@ -68,4 +67,4 @@ Considerando arquivos presentes no **seu diretório desta etapa**:
 4. Abra seu terminal, navegue até o subdiretório `backend` do seu diretório desta etapa e execute `node app_31.js`.
 5. Abra no navegador o endereço que consta no terminal (`localhost:3031`) e observe a linha informando o cálculo que foi realizado via script javascript e seu respectivo resultado. Observe ainda que clicando no botão, um novo cálculo é realizado e aparece também na página.
 
-**Caso algum ponto não tenha conseguido conforme esperado, aguarde a instrução da semana na qual todas as dúvidas serão solucionadas!**
+**Caso não tenha conseguido conseguido executar algum ponto conforme aqui indicado, tire suas dúvidas com o instrutor de programação :)**
