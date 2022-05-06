@@ -109,5 +109,5 @@ Considerando arquivos presentes no **seu diretório desta etapa**:
 4. Abra seu terminal, navegue até o subdiretório `backend` do seu diretório desta etapa e execute `node app_41.js`.
 5. Abra no navegador o endereço que consta no terminal (`localhost:3041`) e observe a linha informando o cálculo que foi realizado via script javascript com jquery e seu respectivo resultado. Observe ainda que o funcionamento do botão permanece o mesmo: clicando nele, um novo cálculo é realizado e aparece na página.
 
-**Caso algum conseguido executar algum ponto conforme aqui indicado, tire suas dúvidas com o instrutor de programação :)**
+**Caso não tenha conseguido conseguido executar algum ponto conforme aqui indicado, tire suas dúvidas com o instrutor de programação :)**
 
