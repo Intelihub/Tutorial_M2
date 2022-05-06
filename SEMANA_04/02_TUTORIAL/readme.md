@@ -26,11 +26,14 @@ Antes de começar a execução das instruções desta etapa, copie para o **seu 
 ## Instruções
 
 Considerando arquivos presentes no **seu diretório desta etapa**:
+
 1. No arquivo `index.html` do subdiretório `frontend`:
+	
 	1.1. Insira a linha abaixo no `head`:
 	```html 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>	
 	``` 
+	
 	1.2. Substitua:
 	```html
 	<h1>ETAPA 3</h1>
@@ -41,7 +44,9 @@ Considerando arquivos presentes no **seu diretório desta etapa**:
 	<h1>ETAPA 4</h1>
 	Introdução a Jquery
 	``` 
+
 2. No arquivo `script.js` do subdiretório `frontend`:
+  
   2.1. Substitua:
   ```javascript
   var calcResDiv = "calc";
@@ -50,6 +55,7 @@ Considerando arquivos presentes no **seu diretório desta etapa**:
   ```javascript
   var calcResDiv = "#calc";
   ```
+  
   2.2. Substitua:
   ```javascript
   document.onreadystatechange = function () {
@@ -68,6 +74,7 @@ Considerando arquivos presentes no **seu diretório desta etapa**:
       CalcAddAndShow(x0, y0);
   });
   ```
+  
   2.3. Substitua:
   ```javascript
   function ShowOp(x, y, op){
@@ -82,6 +89,7 @@ Considerando arquivos presentes no **seu diretório desta etapa**:
       //Alternativa: .. += "<br />" + x + " " + op + " " + y + " = "
   }
   ```
+  
   2.4. Substitua:
   ```javascript
   function ShowResult(res){
