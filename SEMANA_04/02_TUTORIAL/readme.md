@@ -34,7 +34,18 @@ Considerando arquivos presentes no **seu diretório desta etapa**:
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>	
 	``` 
 	
+	
 	1.2. Substitua:
+	```html
+	<title>ETAPA 3</title>
+	``` 
+	por:
+	```html
+	<title>ETAPA 4</title>
+	``` 
+	
+	
+	1.3. Substitua:
 	```html
 	<h1>ETAPA 3</h1>
 	Introdução a Javascript
