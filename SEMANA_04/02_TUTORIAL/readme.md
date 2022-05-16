@@ -13,14 +13,16 @@ Essa etapa tem por objetivo mostrar como aplicar JQuery pode ser aplicado para f
 ### Relacionados ao repositório dos professores
 
 - `Este repositório`: repositório [Tutorial_M2](https://github.com/Intelihub/Tutorial_M2) utilizado pelos professores para disponibilizar as etapas do tutorial do módulo e os exercícios individuais.
-- `Este diretório`: diretório apresentado nesta página, correspondente a todos os arquivos disponibilizados à etapa desta semana do tutorial (`TUTORIAL_M2/SEMANA_03/02_TUTORIAL`).
+- `Este diretório`: diretório apresentado nesta página, correspondente a todos os arquivos disponibilizados à etapa desta semana do tutorial (`TUTORIAL_M2/SEMANA_04/02_TUTORIAL`).
 
 
 
 
 ## Preparação
 
-Antes de começar a execução das instruções desta etapa, copie para o **seu diretório desta etapa** o conteúdo (todos os arquivos) do seu diretório da etapa anterior (`02_TUTORIAL/Semana 3`).
+Antes de começar a execução das instruções desta etapa, copie para o **seu diretório desta etapa** o conteúdo (todos os arquivos) do seu diretório da etapa anterior (`02_TUTORIAL/Semana 4`).
+
+* Perceba que a partir dessa etapa, você deve criar o diretório da semana no seu respositório :)
 
 
 ## Instruções
