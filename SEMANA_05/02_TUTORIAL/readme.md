@@ -34,7 +34,6 @@ Considerando arquivos presentes no **seu diretório desta etapa**:
 	1.1. Substitua:
 	```html
 	<title>ETAPA 4</title>
-    Introdução a Jquery
 	``` 
 	por:
 	```html
@@ -67,21 +66,33 @@ Considerando arquivos presentes no **seu diretório desta etapa**:
     app.use(express.json());
 
     app.get('/user1', (req, res) => {
-    res.statusCode = 200;
-    //res.setHeader('Content-Type', 'text/html');
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    var db = new sqlite3.Database(DBPATH);
-    var sql = 'SELECT * FROM tbUser WHERE userId = 1';
-    db.get(sql, [], (err, row) => {
-        if (err) {
-        throw err;
-        }
-        //res.write("<h1> Teste do banco de dados</h1>") 
-        //res.write("<h4> Informacoes do usuario cujo id = 1: </h2>") 
-        //res.write("title = " + row.title); 
-        //res.write("<br />completed = " + row.completed); 
-        res.json(row);
-    });
+	    res.statusCode = 200;
+	    //res.setHeader('Content-Type', 'text/html');
+	    res.setHeader('Access-Control-Allow-Origin', '*');
+	    var db = new sqlite3.Database(DBPATH);
+	    var sql = 'SELECT * FROM tbUser WHERE userId = 1';
+	    db.get(sql, [], (err, row) => {
+		    if (err) {
+			throw err;
+		    }
+		    res.json(row);
+		    /*O código comentado abaixo é o que foi utilizado na etapa 1.
+
+		      Nele, ao invés a resposta (resultado da execução da cláusula
+		      sql - variável "sql" deste código) ser fornecida via json,
+		      como fazemos na linha acima deste comentário, uma página html
+		      era construída e o resultado era diretamente inserido no html, 
+		      como pode ser observado na última do código comentado abaixo.
+
+		      Observe ainda que essa forma de escrita do resultado em html, 
+		      é necessário indicar que o conteúdo é do tipo html -> comentário
+		      da linha 15 deste arquivo js*/
+
+		    //res.write("<h1> Teste do banco de dados</h1>") 
+		    //res.write("<h4> Informacoes do usuario cujo id = 1: </h2>") 
+		    //res.write("title = " + row.title); 
+		    //res.write("<br />completed = " + row.completed); 
+    	    });
     });
     ```
 4. Abra seu terminal, navegue até o subdiretório `backend` do seu diretório desta etapa e execute `node app_51.js`.
@@ -119,15 +130,47 @@ Considerando arquivos presentes no **seu diretório desta etapa**:
     const urlencodedParser = bodyParser.urlencoded({ extended: false })
     ```
 
-    8.3. Substitua as linhas do código adicionado no passo 3.2 por:
+    8.3. Substitua:
 
+    ```javascript
+    app.get('/user1', (req, res) => {
+	    res.statusCode = 200;
+	    //res.setHeader('Content-Type', 'text/html');
+	    res.setHeader('Access-Control-Allow-Origin', '*');
+	    var db = new sqlite3.Database(DBPATH);
+	    var sql = 'SELECT * FROM tbUser WHERE userId = 1';
+	    db.get(sql, [], (err, row) => {
+		    if (err) {
+			throw err;
+		    }
+		    res.json(row);
+		    /*O código comentado abaixo é o que foi utilizado na etapa 1.
+
+		      Nele, ao invés a resposta (resultado da execução da cláusula
+		      sql - variável "sql" deste código) ser fornecida via json,
+		      como fazemos na linha acima deste comentário, uma página html
+		      era construída e o resultado era diretamente inserido no html, 
+		      como pode ser observado na última do código comentado abaixo.
+
+		      Observe ainda que essa forma de escrita do resultado em html, 
+		      é necessário indicar que o conteúdo é do tipo html -> comentário
+		      da linha 15 deste arquivo js*/
+
+		    //res.write("<h1> Teste do banco de dados</h1>") 
+		    //res.write("<h4> Informacoes do usuario cujo id = 1: </h2>") 
+		    //res.write("title = " + row.title); 
+		    //res.write("<br />completed = " + row.completed); 
+    	    });
+    });
+    ```
+    por:
     ```javascript 
     app.get('/users', (req, res) => {
         res.statusCode = 200;
         res.setHeader('Access-Control-Allow-Origin', '*');
 
         var db = new sqlite3.Database(DBPATH);
-    var sql = 'SELECT * FROM tbUser ORDER BY title COLLATE NOCASE';
+    	var sql = 'SELECT * FROM tbUser ORDER BY title COLLATE NOCASE';
         db.all(sql, [],  (err, rows ) => {
             if (err) {
                 throw err;
