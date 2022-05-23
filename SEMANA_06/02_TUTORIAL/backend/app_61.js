@@ -1,12 +1,13 @@
 const express = require('express'); 
-const bodyParser = require('body-parser');
-const urlencodedParser = bodyParser.urlencoded({ extended: false })
-const hostname = '127.0.0.1';
+const app = express();
 
+const hostname = '127.0.0.1';
 const port = 3061;
 const sqlite3 = require('sqlite3').verbose();
-const app = express();
 const DBPATH = 'dbUser.db';
+
+const bodyParser = require('body-parser');
+const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.use(express.static("../frontend/"));
 
@@ -84,5 +85,5 @@ app.post('/userdelete', urlencodedParser, (req, res) => {
 
 /* Inicia o servidor */
 app.listen(port, hostname, () => {
-  console.log(`BD server running at http://${hostname}:${port}/`);
+  console.log(`Server running at http://${hostname}:${port}/`);
 });
