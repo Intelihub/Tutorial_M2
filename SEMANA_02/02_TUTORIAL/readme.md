@@ -1,4 +1,4 @@
-# Etapa 5 - Introdução a conceitos de banco de dados e backend
+# Etapa 2 - Introdução a conceitos de banco de dados e backend
 
 Essa etapa tem por objetivo introduzir conceitos de banco de dados e backend
 
@@ -33,29 +33,29 @@ Considerando arquivos presentes no **seu diretório desta etapa**:
 	
 	1.1. Substitua:
 	```html
-	<title>ETAPA 4</title>
+	<title>ETAPA 1</title>
 	``` 
 	por:
 	```html
-	<title>ETAPA 5</title>
+	<title>ETAPA 2</title>
     
 	``` 
 	
 	
 	1.3. Substitua:
 	```html
-	<h1>ETAPA 4</h1>
+	<h1>ETAPA 1</h1>
 	Introdução a Jquery
 	``` 
 	por:
 	```html
-	<h1>ETAPA 5</h1>
+	<h1>ETAPA 2</h1>
 	Introdução a conceitos de banco de dados e backend
 	``` 
 
-2. No subdiretório `backend`, renomeie o arquivo `app_41.js` para `app_51.js`.
-3. No arquivo `app_51.js`:
-    3.1. Troque o número da porta (valor da variável `port`) de `3041` para `3051`.
+2. No subdiretório `backend`, renomeie o arquivo `app_11.js` para `app_21.js`.
+3. No arquivo `app_21.js`:
+    3.1. Troque o número da porta (valor da variável `port`) de `3011` para `3021`.
     3.2. Insira as linhas abaixo logo após a definição da porta: 
     ```javascript
     const sqlite3 = require('sqlite3').verbose(); 
@@ -95,8 +95,8 @@ Considerando arquivos presentes no **seu diretório desta etapa**:
     	    });
     });
     ```
-4. Abra seu terminal, navegue até o subdiretório `backend` do seu diretório desta etapa e execute `node app_51.js`.
-5. Abra o navegador e digite o endereço do endpoint `user1` criado (`http://127.0.0.1:3051/user1`) e observe a resposta recebida na página:
+4. Abra seu terminal, navegue até o subdiretório `backend` do seu diretório desta etapa e execute `node app_21.js`.
+5. Abra o navegador e digite o endereço do endpoint `user1` criado (`http://127.0.0.1:3021/user1`) e observe a resposta recebida na página:
 ```json
 {
     "userId": 1,
@@ -106,7 +106,7 @@ Considerando arquivos presentes no **seu diretório desta etapa**:
 }
 ```
 
-6. Abra o Postman, digite o endereço do endpoint `user1` criado (`http://127.0.0.1:3051/user1`) na barra de texto com a mensagem placeholder "Enter request URL" e observe no painel inferior (Aba "Body") a resposta - mesmo json recebido no passo anterior:
+6. Abra o Postman, digite o endereço do endpoint `user1` criado (`http://127.0.0.1:3021/user1`) na barra de texto com a mensagem placeholder "Enter request URL" e observe no painel inferior (Aba "Body") a resposta - mesmo json recebido no passo anterior:
 ```json
 {
     "userId": 1,
@@ -117,11 +117,11 @@ Considerando arquivos presentes no **seu diretório desta etapa**:
 ```
 > A vantagem de utilizarmos o Postman é que quando o método não for o GET, também conseguimos acessar, como será mostrado nos próximos passos.
 
-7. Crie uma cópia do arquivo `app_51.js` e renomeie essa cópia para `app_52.js`.
+7. Crie uma cópia do arquivo `app_21.js` e renomeie essa cópia para `app_22.js`.
 
-8. No arquivo `app_52.js`:
+8. No arquivo `app_22.js`:
 
-    8.1. Troque o número da porta (valor da variável `port`) de `3051` para `3052`.
+    8.1. Troque o número da porta (valor da variável `port`) de `3021` para `3022`.
 
     8.2. Adicione as linhas abaixo logo após a definição da variável `DBPATH` (adicionada no passo 3.2):
 
@@ -197,9 +197,9 @@ Considerando arquivos presentes no **seu diretório desta etapa**:
     });
     ```
 
-9. No seu terminal, navegue até o subdiretório `backend` do seu diretório desta etapa e execute `node app_52.js`.
+9. No seu terminal, navegue até o subdiretório `backend` do seu diretório desta etapa e execute `node app_22.js`.
 
-10. Abra o Postman, digite o endereço do endpoint `users` criado (`http://127.0.0.1:3052/users`) na barra de texto com a mensagem placeholder "Enter request URL" e observe no painel inferior (Aba "Body") a resposta:
+10. Abra o Postman, digite o endereço do endpoint `users` criado (`http://127.0.0.1:3022/users`) na barra de texto com a mensagem placeholder "Enter request URL" e observe no painel inferior (Aba "Body") a resposta:
 
 ```json
 [
@@ -218,6 +218,6 @@ Considerando arquivos presentes no **seu diretório desta etapa**:
 ]
 ```
 
-> O segundo endpoint criado em `app_52.js` será testado durante a instrução.
+> O segundo endpoint criado em `app_22.js` será testado durante a instrução.
 
 **Caso não tenha conseguido conseguido executar algum ponto conforme aqui indicado, tire suas dúvidas com o instrutor de programação :)**
