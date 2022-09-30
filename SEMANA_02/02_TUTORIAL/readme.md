@@ -7,12 +7,12 @@ Essa etapa tem por objetivo introduzir conceitos de banco de dados e backend
 ### Relacionados ao seu repositório pessoal
 
 - `Seu repositório`: seu repositório, existente na **sua conta do Github** criado a partir do [Template_Aluno](https://github.com/Intelihub/Template_Aluno), usado para todas as entregas individuais do módulo.
-- `Seu diretório desta etapa`: diretório correspondente à etapa desta semana do tutorial no seu repositório (`02_TUTORIAL/Semana 5`).
+- `Seu diretório desta etapa`: diretório correspondente à etapa desta semana do tutorial no seu repositório (`02_TUTORIAL/Semana 2`).
 
 ### Relacionados ao repositório dos professores
 
 - `Este repositório`: repositório [Tutorial_M2](https://github.com/Intelihub/Tutorial_M2) utilizado pelos professores para disponibilizar as etapas do tutorial do módulo e os exercícios individuais.
-- `Este diretório`: diretório apresentado nesta página, correspondente a todos os arquivos disponibilizados à etapa desta semana do tutorial (`TUTORIAL_M2/SEMANA_05/02_TUTORIAL`).
+- `Este diretório`: diretório apresentado nesta página, correspondente a todos os arquivos disponibilizados à etapa desta semana do tutorial (`TUTORIAL_M2/SEMANA_02/02_TUTORIAL`).
 
 
 
@@ -21,9 +21,9 @@ Essa etapa tem por objetivo introduzir conceitos de banco de dados e backend
 
 Antes de começar a execução das instruções desta etapa:
 
-1. Copie para o **seu diretório desta etapa** o conteúdo (todos os arquivos) do seu diretório da etapa anterior (`02_TUTORIAL/Semana 4`).
+1. Copie para o **seu diretório desta etapa** o conteúdo (todos os arquivos) do seu diretório da etapa anterior (`02_TUTORIAL/Semana 1`).
 
-2. Copie para o **seu diretório desta etapa** o arquivo `dbUser.db` do subdiretório `backend` **deste diretório** (`TUTORIAL_M2/SEMANA_05/02_TUTORIAL/backend`).
+2. Copie para o **seu diretório desta etapa** o arquivo `dbUser.db` do subdiretório `backend` **deste diretório** (`TUTORIAL_M2/SEMANA_02/02_TUTORIAL/backend`).
 
 ## Instruções
 
