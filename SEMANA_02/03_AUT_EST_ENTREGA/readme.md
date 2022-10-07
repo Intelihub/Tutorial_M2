@@ -6,7 +6,7 @@ Imagine que você tenha que desenvolver um sistema para armazenar as informaçõ
 
 Pensando somente na estrutura do banco, crie o modelo relacional e modelo físico, que consiga armazenar as informações contidas na seguinte imagem:
 
-<p style="text-align: center;"><img src="curriculo.png" width="400"></p>
+<p style="text-align: center;"><img src="curriculo.png" width="80%"></p>
 
 # Entregáveis:
 
