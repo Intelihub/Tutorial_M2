@@ -6,218 +6,150 @@ Essa etapa tem por objetivo introduzir conceitos de banco de dados e backend
 
 ### Relacionados ao seu repositório pessoal
 
-- `Seu repositório`: seu repositório, existente na **sua conta do Github** criado a partir do [Template_Aluno](https://github.com/Intelihub/Template_Aluno), usado para todas as entregas individuais do módulo.
 - `Seu diretório desta etapa`: diretório correspondente à etapa desta semana do tutorial no seu repositório (`02_TUTORIAL/Semana 2`).
 
 ### Relacionados ao repositório dos professores
 
-- `Este repositório`: repositório [Tutorial_M2](https://github.com/Intelihub/Tutorial_M2) utilizado pelos professores para disponibilizar as etapas do tutorial do módulo e os exercícios individuais.
 - `Este diretório`: diretório apresentado nesta página, correspondente a todos os arquivos disponibilizados à etapa desta semana do tutorial (`TUTORIAL_M2/SEMANA_02/02_TUTORIAL`).
-
-
-
 
 ## Preparação
 
-Antes de começar a execução das instruções desta etapa:
+A ideia é a de criar o modelo físico do banco de dados chamado projeto.db, com base no seguinte modelo de entidade-relacionamento:
 
-1. Copie para o **seu diretório desta etapa** o conteúdo (todos os arquivos) do seu diretório da etapa anterior (`02_TUTORIAL/Semana 1`).
+<img src="./frontend/imagens/mer.jpg" width="80%" >
 
-2. Copie para o **seu diretório desta etapa** o arquivo `dbUser.db` do subdiretório `backend` **deste diretório** (`TUTORIAL_M2/SEMANA_02/02_TUTORIAL/backend`).
+Observar que esse modelo refletirá o seguinte modelo físico, já contando com algumas inserções para facilitar a requisição:
 
-## Instruções
+    BEGIN TRANSACTION;
+    CREATE TABLE IF NOT EXISTS "projeto" (
+        "cod_projeto"	INTEGER NOT NULL,
+        "nome"	char(255),
+        "data_inicio"	char(10),
+        "data_fim"	char(10),
+        PRIMARY KEY("cod_projeto" AUTOINCREMENT)
+    );
+    CREATE TABLE IF NOT EXISTS "usuario" (
+        "cod_usuario"	integer NOT NULL,
+        "matricula"	integer(11) NOT NULL UNIQUE,
+        "data_admissao"	char(10) NOT NULL,
+        "nome"	char(128) NOT NULL,
+        PRIMARY KEY("cod_usuario" AUTOINCREMENT)
+    );
+    CREATE TABLE IF NOT EXISTS "alocacao" (
+        "cod_alocacao"	integer NOT NULL,
+        "cod_projeto"	INTEGER,
+        "cod_usuario"	INTEGER,
+        "qtde_horas"	INTEGER,
+        "data_alocacao"	TEXT,
+        PRIMARY KEY("cod_alocacao" AUTOINCREMENT),
+        FOREIGN KEY("cod_usuario") REFERENCES "usuario"("cod_usuario"),
+        FOREIGN KEY("cod_projeto") REFERENCES "projeto"("cod_projeto")
+    );
+    INSERT INTO "projeto" VALUES (1,'Projeto 1','2022-04-01','2022-06-01'),
+    (2,'Projeto 2','2022-05-01','2022-08-01');
+    INSERT INTO "usuario" VALUES (1,1234,'2020-01-01','Funcionário 1'),
+    (2,1235,'2018-12-01','Funcionário 2');
+    INSERT INTO "alocacao" VALUES (1,1,1,20,'2022-05-01'),
+    (2,1,2,100,'2022-06-01'),
+    (3,2,1,50,'2022-06-30');
+    COMMIT;
 
-Considerando arquivos presentes no **seu diretório desta etapa**:
+Para criar o banco chamado projeto.db, é preciso utilizar a aplicação DB Browser for SQLite e seguir os passos:
 
-1. No arquivo `index.html` do subdiretório `frontend`:
-	
-	1.1. Substitua:
-	```html
-	<title>ETAPA 1</title>
-	``` 
-	por:
-	```html
-	<title>ETAPA 2</title>
-    
-	``` 
-	
-	
-	1.3. Substitua:
-	```html
-	<h1>ETAPA 1</h1>
-	Introdução a Jquery
-	``` 
-	por:
-	```html
-	<h1>ETAPA 2</h1>
-	Introdução a conceitos de banco de dados e backend
-	``` 
+1. Arquivo > Novo banco de dados
+2. Escolher a pasta 02_TUTORIAL da SEMANA_02 para salvar com o nome projeto.db
+3. Na aba Executar SQL, coiar todo o SQL fornecido, desde BEGIN TRANSACTION até COMMIT e executar
+4. A partir desse momento você terá o banco de dados criado e com alguns registros
 
-2. No subdiretório `backend`, renomeie o arquivo `app_11.js` para `app_21.js`.
-3. No arquivo `app_21.js`:
-    3.1. Troque o número da porta (valor da variável `port`) de `3011` para `3021`.
-    3.2. Insira as linhas abaixo logo após a definição da porta: 
-    ```javascript
-    const sqlite3 = require('sqlite3').verbose(); 
-    const DBPATH = 'dbUser.db'; 
-    ```
-    3.2. Insira as linhas abaixo logo após a instrução `app.use(express.static("../frontend/"));`: 
-    ```javascript
+
+## Instruções para o teste via end points no backend
+
+1. Na mesma pasta em que estiver o arquivo projeto.db, crie uma outra chamada backend
+2. Ainda na pasta backend, crie o arquivo com o nome app_21.js, contendo o seguinte trecho de código:
+
+    const express = require('express'); 
+    const app = express();
+
+    const hostname = '127.0.0.1';
+    const port = 3021;
+    const sqlite3 = require('sqlite3').verbose();
+    const DBPATH = 'projeto.db';
+
     app.use(express.json());
 
-    app.get('/user1', (req, res) => {
-	    res.statusCode = 200;
-	    //res.setHeader('Content-Type', 'text/html');
-	    res.setHeader('Access-Control-Allow-Origin', '*');
-	    var db = new sqlite3.Database(DBPATH);
-	    var sql = 'SELECT * FROM tbUser WHERE userId = 1';
-	    db.get(sql, [], (err, row) => {
-		    if (err) {
-			throw err;
-		    }
-		    res.json(row);
-		    /*O código comentado abaixo é o que foi utilizado na etapa 1.
+    /* Definição dos endpoints */
 
-		      Nele, ao invés a resposta (resultado da execução da cláusula
-		      sql - variável "sql" deste código) ser fornecida via json,
-		      como fazemos na linha acima deste comentário, uma página html
-		      era construída e o resultado era diretamente inserido no html, 
-		      como pode ser observado na última do código comentado abaixo.
-
-		      Observe ainda que essa forma de escrita do resultado em html, 
-		      é necessário indicar que o conteúdo é do tipo html -> comentário
-		      da linha 15 deste arquivo js*/
-
-		    //res.write("<h1> Teste do banco de dados</h1>") 
-		    //res.write("<h4> Informacoes do usuario cujo id = 1: </h2>") 
-		    //res.write("title = " + row.title); 
-		    //res.write("<br />completed = " + row.completed); 
-    	    });
-    });
-    ```
-4. Abra seu terminal, navegue até o subdiretório `backend` do seu diretório desta etapa e execute `node app_21.js`.
-5. Abra o navegador e digite o endereço do endpoint `user1` criado (`http://127.0.0.1:3021/user1`) e observe a resposta recebida na página:
-```json
-{
-    "userId": 1,
-    "id": 1,
-    "title": "delectus aut autem",
-    "completed": 0
-}
-```
-
-6. Abra o Postman, digite o endereço do endpoint `user1` criado (`http://127.0.0.1:3021/user1`) na barra de texto com a mensagem placeholder "Enter request URL" e observe no painel inferior (Aba "Body") a resposta - mesmo json recebido no passo anterior:
-```json
-{
-    "userId": 1,
-    "id": 1,
-    "title": "delectus aut autem",
-    "completed": 0
-}
-```
-> A vantagem de utilizarmos o Postman é que quando o método não for o GET, também conseguimos acessar, como será mostrado nos próximos passos.
-
-7. Crie uma cópia do arquivo `app_21.js` e renomeie essa cópia para `app_22.js`.
-
-8. No arquivo `app_22.js`:
-
-    8.1. Troque o número da porta (valor da variável `port`) de `3021` para `3022`.
-
-    8.2. Adicione as linhas abaixo logo após a definição da variável `DBPATH` (adicionada no passo 3.2):
-
-    ```javascript
-    const bodyParser = require('body-parser');
-    const urlencodedParser = bodyParser.urlencoded({ extended: false })
-    ```
-
-    8.3. Substitua:
-
-    ```javascript
-    app.get('/user1', (req, res) => {
-	    res.statusCode = 200;
-	    //res.setHeader('Content-Type', 'text/html');
-	    res.setHeader('Access-Control-Allow-Origin', '*');
-	    var db = new sqlite3.Database(DBPATH);
-	    var sql = 'SELECT * FROM tbUser WHERE userId = 1';
-	    db.get(sql, [], (err, row) => {
-		    if (err) {
-			throw err;
-		    }
-		    res.json(row);
-		    /*O código comentado abaixo é o que foi utilizado na etapa 1.
-
-		      Nele, ao invés a resposta (resultado da execução da cláusula
-		      sql - variável "sql" deste código) ser fornecida via json,
-		      como fazemos na linha acima deste comentário, uma página html
-		      era construída e o resultado era diretamente inserido no html, 
-		      como pode ser observado na última do código comentado abaixo.
-
-		      Observe ainda que essa forma de escrita do resultado em html, 
-		      é necessário indicar que o conteúdo é do tipo html -> comentário
-		      da linha 15 deste arquivo js*/
-
-		    //res.write("<h1> Teste do banco de dados</h1>") 
-		    //res.write("<h4> Informacoes do usuario cujo id = 1: </h2>") 
-		    //res.write("title = " + row.title); 
-		    //res.write("<br />completed = " + row.completed); 
-    	    });
-    });
-    ```
-    por:
-    ```javascript 
-    app.get('/users', (req, res) => {
+    // Retorna todos registros de usuários
+    app.get('/usuarios', (req, res) => {
         res.statusCode = 200;
-        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
-        var db = new sqlite3.Database(DBPATH);
-    	var sql = 'SELECT * FROM tbUser ORDER BY title COLLATE NOCASE';
+        var db = new sqlite3.Database(DBPATH); // Abre o banco
+    var sql = 'SELECT matricula, nome, strftime("%d/%m/%Y",data_admissao) AS "data de contratação" FROM usuario ORDER BY nome COLLATE NOCASE';
         db.all(sql, [],  (err, rows ) => {
             if (err) {
                 throw err;
             }
             res.json(rows);
         });
-        db.close();
+        db.close(); // Fecha o banco
     });
 
-
-    app.post('/userinsert', urlencodedParser, (req, res) => {
+    // Retorna todos registros de projetos
+    app.get('/projetos', (req, res) => {
         res.statusCode = 200;
-        res.setHeader('Access-Control-Allow-Origin', '*'); 
+        res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
-        sql = "INSERT INTO tbUser (title, id, completed) VALUES ('" + req.body.title + "', 33, false)";
-        var db = new sqlite3.Database(DBPATH); 
-        db.run(sql, [],  err => {
+        var db = new sqlite3.Database(DBPATH); // Abre o banco
+    var sql = 'SELECT nome, strftime("%d/%m/%Y",data_inicio) AS "data de início", strftime("%d/%m/%Y",data_fim) AS "data de término" FROM projeto ORDER BY nome COLLATE NOCASE';
+        db.all(sql, [],  (err, rows ) => {
             if (err) {
                 throw err;
             }
+            res.json(rows);
         });
-        db.close();
-        res.end();
+        db.close(); // Fecha o banco
     });
-    ```
 
-9. No seu terminal, navegue até o subdiretório `backend` do seu diretório desta etapa e execute `node app_22.js`.
+    // Retorna todos registros de alocações
+    app.get('/alocacoes', (req, res) => {
+        res.statusCode = 200;
+        res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
-10. Abra o Postman, digite o endereço do endpoint `users` criado (`http://127.0.0.1:3022/users`) na barra de texto com a mensagem placeholder "Enter request URL" e observe no painel inferior (Aba "Body") a resposta:
+        var db = new sqlite3.Database(DBPATH); // Abre o banco
+    var sql = "SELECT  strftime('%d/%m/%Y',data_alocacao) AS 'data de alocação', projeto.nome, usuario.nome, qtde_horas \
+                FROM alocacao \
+                INNER JOIN projeto ON alocacao.cod_projeto = projeto.cod_projeto  \
+                INNER JOIN usuario ON alocacao.cod_usuario = usuario.cod_usuario  \
+                ORDER BY projeto.nome";
+        db.all(sql, [],  (err, rows ) => {
+            if (err) {
+                throw err;
+            }
+            res.json(rows);
+        });
+        db.close(); // Fecha o banco
+    });
 
-```json
-[
-    {
-        "userId": 1,
-        "id": 1,
-        "title": "delectus aut autem",
-        "completed": 0
-    },
-    {
-        "userId": 2,
-        "id": 2,
-        "title": "Fabiano Junior",
-        "completed": 1
-    }
-]
-```
 
-> O segundo endpoint criado em `app_22.js` será testado durante a instrução.
+    /* Inicia o servidor */
+    app.listen(port, hostname, () => {
+    console.log(`Server running at http://${hostname}:${port}/`);
+    });
+
+
+3. No seu terminal,  `node .\backend\app_21.js`, e você perceberá que faltam instalar duas dependências, express e sqlite3, portanto execute o comando npm install express e depois npm install sqlite3.
+
+4. Depois de executar, você perceberá que no console é mostrado "Server running at http://127.0.0.1:3021/", o que significa que é preciso abrir o endereço no navegador.
+
+5. Se você fizer isso, irá receber a mensagem de erro Cannot GET / . Isso ocorre porque não existe um end point apontando para / , e por esse motivo você precisará acessar pelos seguintes endereços:
+    - http://localhost:3021/usuarios (listagem dos usuários)
+    - http://localhost:3021/projetos (listagem dos projetos)
+    - http://localhost:3021/alocacoes (listagem das alocações dos usuários nos projetos)
+
+6. Observe como as consultas foram construídas, e procure executar algumas novas, como por exemplo para obter a somatória da carga horária de alocação por usuário nos projetos.
+
+
+> Os  endpoints criados em `app_21.js` serão testados durante a instrução.
 
 **Caso não tenha conseguido conseguido executar algum ponto conforme aqui indicado, tire suas dúvidas com o instrutor de programação :)**
