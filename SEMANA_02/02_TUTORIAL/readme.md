@@ -67,7 +67,7 @@ Para criar o banco chamado projeto.db, é preciso utilizar a aplicação DB Brow
 1. Na mesma pasta em que estiver o arquivo projeto.db, crie uma outra chamada backend
 2. Ainda na pasta backend, crie o arquivo com o nome app_21.js, contendo o seguinte trecho de código:
 
-```node
+```
     const express = require('express'); 
     const app = express();
 
