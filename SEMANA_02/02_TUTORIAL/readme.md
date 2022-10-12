@@ -67,6 +67,7 @@ Para criar o banco chamado projeto.db, é preciso utilizar a aplicação DB Brow
 1. Na mesma pasta em que estiver o arquivo projeto.db, crie uma outra chamada backend
 2. Ainda na pasta backend, crie o arquivo com o nome app_21.js, contendo o seguinte trecho de código:
 
+```node
     const express = require('express'); 
     const app = express();
 
@@ -136,7 +137,7 @@ Para criar o banco chamado projeto.db, é preciso utilizar a aplicação DB Brow
     app.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
     });
-
+```
 
 3. No seu terminal,  `node .\backend\app_21.js`, e você perceberá que faltam instalar duas dependências, express e sqlite3, portanto execute o comando npm install express e depois npm install sqlite3.
 
