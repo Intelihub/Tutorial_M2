@@ -93,7 +93,7 @@ Considerando arquivos presentes no **seu diretório desta etapa**:
 3. Como não poderia faltar o glamour, precisamos ter um pouco de estilo, e para isso o seguinte conteúdo precisa ser colocado no arquivo style.css:
 
 	```css 
-		body, html {
+		body, html { 
 		width: 100%;
 		height: 100%;
 		background-color: #acb1bf;
