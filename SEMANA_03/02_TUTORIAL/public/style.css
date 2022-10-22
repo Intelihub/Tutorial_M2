@@ -26,11 +26,15 @@ h1{
 	padding: 3em;
 }
 
-
-#calc{
+#saida{
 	color: #547aa5;
+	border: #ff4645 solid 5px;
+	width: 200px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	margin: 20px auto;
 }
-
 
 button {
 	padding: 3;
