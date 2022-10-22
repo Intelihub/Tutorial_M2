@@ -43,7 +43,7 @@ app.listen(port, hostname, () => {
 
 3. Como o script app_31.js aponta um diretório chamado public, é preciso criar exatamente com esse nome, no mesmo local. 
 	
-4. Para o perfeito funcionamento do tutorial, dentro do diretório public devemos ter essencialmente três arquivos, um chamado index.html, outro estilo.css e o último chamado script.js
+4. Para o perfeito funcionamento do tutorial, dentro do diretório public devemos ter essencialmente três arquivos, um chamado index.html, outro style.css e o último chamado script.js
 
 ## Instruções
 
@@ -90,7 +90,7 @@ Considerando arquivos presentes no **seu diretório desta etapa**:
 	}
 	```
 
-3. Como não poderia faltar o glamour, precisamos ter um pouco de estilo, e para isso o seguinte conteúdo precisa ser colocado no arquivo estilo.css:
+3. Como não poderia faltar o glamour, precisamos ter um pouco de estilo, e para isso o seguinte conteúdo precisa ser colocado no arquivo style.css:
 
 	```css 
 		body, html {
