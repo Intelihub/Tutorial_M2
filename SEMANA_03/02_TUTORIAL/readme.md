@@ -49,8 +49,7 @@ app.listen(port, hostname, () => {
 
 Considerando arquivos presentes no **seu diretório desta etapa**:
 1. No arquivo `index.html` do subdiretório `public`:
-	1.1. Insira  
-	
+		
 	```html 
 	<!DOCTYPE html>
 	<html>
