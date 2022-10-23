@@ -35,20 +35,30 @@ Observando a figura vemos que a diferença entre os pontos de fusão e de ebuli�
 
 Logo:
 (C- 0) / (100 - 0)  =  (F - 32) / (212 - 32)
+<br/>
 (C / 100) =  (F - 32)/180
 
 Simplificando, temos:
+<br/>
  C / 5 = (F - 32) / 9
 
 Exemplo de teste: Converter 37°C para a escala Farenheit.
+<br/>
 C/ 5 = (F - 32) / 9
+<br/>
 C = 37°C
+<br/>
 37 / 5= (F - 32) / 9
-7,4 = (F - 32) / 9
-9  .  7,4 =  F - 32
-F - 32 = 66,6
-F = 66,6 + 32
-F = 98,6°F
+<br/>
+7.4 = (F - 32) / 9
+<br/>
+9  *  7.4 =  F - 32
+<br/>
+F - 32 = 66.,6
+<br/>
+F = 66.6 + 32
+<br/>
+F = 98.6°F
 
 Fonte: http://www.infoescola.com/fisica/conversao-de-escalas-termometricas/
 

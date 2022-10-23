@@ -6,9 +6,13 @@ Construa um script que receba dados através de um formulário HTML contendo um 
 Construa um script que receba dados através de um formulário HTML contendo o valor da hora de trabalho, o número de horas trabalhadas no mês e informe o salário líquido de um funcionário, de acordo com o percentual de desconto do INSS.
 
 SALÁRIO DE CONTRIBUIÇÃO (R$)	ALÍQUOTA INSS
+<br/>
 até 1.317,07	                8%
+<br/>
 de 1.317,08 até 2.195,12	    9%
+<br/>
 Acima de  2.195,13 	            11%
+<br/>
 
 
 3.	CALCULADORA FLEX 
