@@ -186,7 +186,7 @@ E como as requisições no final das contas são endpoints, precisamos criá-los
     console.log(`Servidor rodando em http://${hostname}:${port}/`);
     });
 ```
-# É importante ter também o arquivo package.json para facilitar a instalação automatizada das dependências:
+É importante ter também o arquivo package.json para facilitar a instalação automatizada das dependências:
 
 ```node
     {
