@@ -8,7 +8,7 @@ Essa etapa tem por objetivo introduzir conceitos de criação, leitura, atualiza
 - `Este repositório`: repositório [Tutorial_M2](https://github.com/Intelihub/Tutorial_M2) utilizado pelos professores para disponibilizar as etapas do tutorial do módulo e os exercícios individuais.
 - `Este diretório`: diretório apresentado nesta página, correspondente a todos os arquivos disponibilizados à etapa desta semana do tutorial (`TUTORIAL_M2/SEMANA_04/02_TUTORIAL`).
 
-## Preparação
+### Preparação
 
 Antes de começar a execução das instruções desta etapa, copie para o **seu diretório desta etapa** o conteúdo (todos os arquivos) do seu diretório da etapa anterior (`02_TUTORIAL/Semana 4`).
 
@@ -186,7 +186,7 @@ E como as requisições no final das contas são endpoints, precisamos criá-los
     console.log(`Servidor rodando em http://${hostname}:${port}/`);
     });
 ```
-##É importante ter também o arquivo package.json para facilitar a instalação automatizada das dependências:
+# É importante ter também o arquivo package.json para facilitar a instalação automatizada das dependências:
 
 ```node
     {
@@ -197,17 +197,18 @@ E como as requisições no final das contas são endpoints, precisamos criá-los
     }
 ```
 
-##O código é bem denso, pois envolve todos os endpoints para gerenciamento dos dados de uma simples tabela. Agora imagine um banco de dados que contenha 10 tabelas? Entendeu o tamanho da brincadeira?
+# O código é bem denso, pois envolve todos os endpoints para gerenciamento dos dados de uma simples tabela. Agora imagine um banco de dados que contenha 10 tabelas? Entendeu o tamanho da brincadeira?
 
-##Se você perceber temos 5 endpoints relacionados diretamente com a tabela usuario: 
-#/usuarios: lista todos os usuários da tabela
-#/insereUsuario: este endpoint é chamado através de um método post, vindo de um formulário web (arquivo inserir.html na pasta frontend)
-#/atualizaUsuario: existem dois endpoints com o mesmo nome, porém um utilizando o método get e o outro com o método post. Isso indica que primeiro precisamos preencher um formulário web com os dados de um determinado usuário da tabela, para que a partir desse form (contido no arquivo atualizar.html), seja feita a execução do UPDATE. 
-#/removeUsuario: este endpoint utiliza o método get para remover um usuário da tabela (poderia ser utilizado também o método post)
+# Se você perceber temos 5 endpoints relacionados diretamente com a tabela usuario: 
 
-##Demais arquivos 
+# /usuarios: lista todos os usuários da tabela
+# /insereUsuario: este endpoint é chamado através de um método post, vindo de um formulário web (arquivo inserir.html na pasta frontend)
+# /atualizaUsuario: existem dois endpoints com o mesmo nome, porém um utilizando o método get e o outro com o método post. Isso indica que primeiro precisamos preencher um formulário web com os dados de um determinado usuário da tabela, para que a partir desse form (contido no arquivo atualizar.html), seja feita a execução do UPDATE. 
+# /removeUsuario: este endpoint utiliza o método get para remover um usuário da tabela (poderia ser utilizado também o método post)
 
-#Para a finalização do tutorial, é preciso ciar os arquivos inserir.html e atualizar.html, dentro da pasta frontend:
+## Demais arquivos 
+
+# Para a finalização do tutorial, é preciso ciar os arquivos inserir.html e atualizar.html, dentro da pasta frontend:
 
 #atualizar.html
 ```html
