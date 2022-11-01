@@ -28,8 +28,8 @@ Para este tutorial, é fundamental que exista um banco de dados com o nome dbUse
 ````
 2. "Front-end"
 
-## O desenvolvimento do front-end ainda não é uma preocupação, porém é super importante mostrar o resultado final de um endpoint (no caso /usuarios) sendo exibido no formato html? 
-Sendo assim, basta criar o arquivo chamado index.html e colocá-lo na pasta frontend, contendo o seguinte código:
+#O desenvolvimento do front-end ainda não é uma preocupação, porém é super importante mostrar o resultado final de um endpoint (no caso /usuarios) sendo exibido no formato html? 
+#Sendo assim, basta criar o arquivo chamado index.html e colocá-lo na pasta frontend, contendo o seguinte código:
 
 ```html
     <!DOCTYPE html>
