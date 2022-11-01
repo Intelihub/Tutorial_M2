@@ -28,8 +28,8 @@ Para este tutorial, é fundamental que exista um banco de dados com o nome dbUse
 ````
 2. "Front-end"
 
-#O desenvolvimento do front-end ainda não é uma preocupação, porém é super importante mostrar o resultado final de um endpoint (no caso /usuarios) sendo exibido no formato html? 
-#Sendo assim, basta criar o arquivo chamado index.html e colocá-lo na pasta frontend, contendo o seguinte código:
+O desenvolvimento do front-end ainda não é uma preocupação, porém é super importante mostrar o resultado final de um endpoint (no caso /usuarios) sendo exibido no formato html? 
+Sendo assim, basta criar o arquivo chamado index.html e colocá-lo na pasta frontend, contendo o seguinte código:
 
 ```html
     <!DOCTYPE html>
@@ -74,8 +74,10 @@ Para este tutorial, é fundamental que exista um banco de dados com o nome dbUse
 
 2. "Back-end"
 
-##Uma aplicação web é composta por uma série de requisições e respostas, e se as requisições exigem uma camada de persistência, é preciso fornecer todas operações para que os dados sejam armazenados. Estamos falando nesse caso do chamado CRUD, ou seja, CREATE (INSERT), READ (SELECT), UPDATE e DELETE. 
+Uma aplicação web é composta por uma série de requisições e respostas, e se as requisições exigem uma camada de persistência, é preciso fornecer todas operações para que os dados sejam armazenados. Estamos falando nesse caso do chamado CRUD, ou seja, CREATE (INSERT), READ (SELECT), UPDATE e DELETE. 
+
 Para facilitar o entendimento, vamos imaginar que precisamos gerenciar os registros de usuários em nosso banco dbUser.db e dentro da tabela usuario.
+
 E como as requisições no final das contas são endpoints, precisamos criá-los dentro do script app_41.js, o qual deve também existir dentro da pasta backend com o seguinte código:
 
 
