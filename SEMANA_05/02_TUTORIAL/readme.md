@@ -1,4 +1,4 @@
-# Etapa 4 - Desenvolvimento do front-end
+# Etapa 5 - Desenvolvimento do front-end estático
 
 Essa etapa tem por objetivo introduzir conceitos de web design responsivo, para o desenvolvimento do front-end.
 É importante observar que no html haverá algumas tags <div>, que por meio dos atributos id ou class irão incorporar as regras criadas no arquivo css, portanto a experimentação será somente a de redimensionar a página dentro do navegador e observar os breakpoints adicionados.
