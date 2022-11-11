@@ -4,27 +4,30 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	<title>ETAPA 6</title>
-	<link rel="stylesheet" href="style.css" />	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="script.js"></script>
-
+	<link rel="stylesheet" href="style.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 <body>
 	<div id="main">
-		<h1>ETAPA 6</h1>
-		CRUD (Create, Read, Update e Delete)
-		
-		<div id="calc" class="sections">
-			<h3>PARTE 1 - Cálculos</h3>
-			Cálculos realizados e respectivos resultados obtidos:
+		<h1>ETAPA 6 - Introdução ao JQuery</h1>
+		<div class="sections">
+			<h3>Calculadora</h3>
+			<form name="form1" id="form1">
+				<input type="text" size="4" id="num1" value="">
+				<select name="op" id="op">
+					<option value="+">+</option>
+					<option value="-">-</option>
+					<option value="/">/</option>
+					<option value="*">*</option>
+					<option value="%">%</option>
+				</select>
+				<input type="text" size="4" id="num2" value="">
+				<input type="submit" class="button-calc" value="CALCULAR">
+			</form>
+			<div id="calc"></div>
 		</div>
-		<button onclick="CalcAddAndShow(10, 50)" class="button-calc">Calcular 10 + 50</button>
 		
-		<div id="get" class="sections">
-			<h3>PARTE 2 - Teste GET</h3>
-			Resultados obtidos com a requisição GET:
-		</div>
-		<button onclick="TestGET()" class="button-get">Test GET</button>
 	</div>
+	<script src="script.js"></script>
 </body>
 </html>
