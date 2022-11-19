@@ -1,10 +1,8 @@
 ﻿api = 'http://127.0.0.1:3071'
 
-
 $(document).ready(() => {
     users.list();
 });
-
 
 var users = {
     
@@ -17,9 +15,9 @@ var users = {
                 tx += '<div class="insert" onclick="user.insert()">Inserir</div>';
                 data.forEach(element => {
                     tx += '<div class="user">';
-                        tx += '<div class="title">' + element.title + '</div>';
+                        tx += '<div class="title">' + `${element.nome} - ${element.email} - ${element.telefone} ` + '</div>';
                         tx += '<div class="actions">';
-                            tx += '<div class="action" onclick="user.update(' + element.userId + ',\'' + element.title + '\')">Editar</div>';
+                            tx += '<div class="action" onclick="user.update(' + element.userId + ',\'' + element.nome + '\')">Editar</div>';
                             tx += '<div class="action" onclick="user.delete(' + element.userId + ')">Excluir</div>';
                         tx += '</div>';
                     tx += '</div>';
@@ -35,13 +33,16 @@ var users = {
 var user = {
 
     insert() {
-        var title = prompt('Digite o nome:');
-        if (title) {
-            if (title.trim() != '') {
+        var nome = prompt('Digite o nome:');
+        var email = prompt('Digite o email:');
+        var telefone = prompt('Digite o telefone:');
+        console.log(`${nome} - ${email} - ${telefone}`);
+        if (nome && email && telefone) {
+            if (nome.trim() != '' && email.trim() != '' && telefone.trim() != '') {
                 $.ajax({
                     type: 'POST',
                     url: api + '/userinsert',
-                    data: {title: title},
+                    data: {nome: nome, email: email, telefone: telefone},
                 }).done(function () {
                     users.list();
                 }).fail(function (msg) {
@@ -56,13 +57,13 @@ var user = {
 
     update(userId, oldTitle) {
 
-        var title = prompt('Digite o novo nome:', oldTitle);
-        if (title) {
-            if (title.trim() != '') {
+        var nome = prompt('Digite o novo nome:', oldTitle);
+        if (nome) {
+            if (nome.trim() != '') {
                 $.ajax({
                     type: 'POST',
                     url: api + '/userupdate',
-                    data: {title: title, userId: userId},
+                    data: {nome: nome, userId: userId},
                 }).done(function () {
                     users.list();
                 }).fail(function (msg) {
