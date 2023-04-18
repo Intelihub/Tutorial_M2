@@ -7,10 +7,9 @@ Neste repositório serão concentradas todas as informações necessárias relac
 
 # Organização
 
-- Cada etapa do tutorial é um autoestudo semanal, por isso, sua descrição está disponível na Adalove bem como o link para o local no Github com todos os arquivos necessários para sua execução (subdiretório `02_TUTORIAL` deste repositório);
-- Além do tutorial, a cada semana, vocês terão autoestudos (atividades individuais), que deverão ser entregues até o final da semana em questão. Essas atividades estarão relacionadas à etapa anterior do tutorial para que vocês pratiquem mais. Estes autoestudos, bem como os links para os arquivos no Github (subdiretório `03_AUT_EST_ENTREGA`) estarão disponíveis na Adalove a cada semana;
-- Em algumas semanas, serão propostos mais exercícios INDIVIDUAIS de programação, focados em lógica de programação, obrigatórios e outros OPCIONAIS. Estes autoestudos, bem como os links para os arquivos no Github (subdiretório `04_EXE_OBRIGATORIOS` para os obrigatórios e `05_AUT_EST_EXE_OPCIONAIS` para os opcionais) estarão disponíveis na Adalove a cada semana.
-- Em cada semana, materiais de autoestudo auxiliares opcionais poderão ser disponibilizados no subdiretório `01_AUT_EST` caso algum material previamente curado tenha algum problema de acesso (algum link externo sair do ar, por exemplo).
+- Cada etapa do tutorial é um autoestudo semanal, por isso, sua descrição está disponível na Adalove bem como o link para o local no Github com todos os arquivos necessários para sua execução (subdiretório `TUTORIAL` deste repositório);
+- Além do tutorial, a cada semana, vocês terão autoestudos (atividades individuais), que deverão ser entregues até o final da semana em questão. Essas atividades estarão relacionadas à etapa anterior do tutorial para que vocês pratiquem mais. Estes autoestudos, bem como os links para os arquivos no Github (subdiretório `AUT_EST_ENTREGA`) estarão disponíveis na Adalove a cada semana;
+- Em algumas semanas, serão propostos mais exercícios INDIVIDUAIS de programação, focados em lógica de programação, obrigatórios e outros OPCIONAIS. Estes autoestudos, bem como os links para os arquivos no Github (subdiretório `EXERCÍCIOS` estarão disponíveis na Adalove a cada semana.
 
 # Glossário
 
