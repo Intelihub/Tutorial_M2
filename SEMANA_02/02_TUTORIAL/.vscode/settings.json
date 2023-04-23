@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "projetodb",
+            "database": "${workspaceFolder:02_TUTORIAL}/projeto.db"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}

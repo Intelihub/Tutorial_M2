@@ -1,0 +1,34 @@
+{
+  "name": "02_tutorial",
+  "version": "1.0.0",
+  "description": "Learning how to check a database in sql lite",
+  "main": ".\\backend\\app_21.js",
+  "scripts": {
+    "test": "node .\\backend\\app_21.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YanMCoutinho/Mod_2_inteli.git"
+  },
+  "keywords": [
+    "TIL",
+    "Today",
+    "I",
+    "Learn",
+    "Learn",
+    "SQL",
+    "SQL",
+    "Lite",
+    "database"
+  ],
+  "author": "Yan Mendonça Coutinho",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YanMCoutinho/Mod_2_inteli/issues"
+  },
+  "homepage": "https://github.com/YanMCoutinho/Mod_2_inteli#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "sqlite3": "^5.1.6"
+  }
+}

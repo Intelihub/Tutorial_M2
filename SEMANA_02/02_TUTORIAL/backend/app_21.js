@@ -32,7 +32,7 @@ app.get('/projetos', (req, res) => {
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
-  var sql = 'SELECT nome, strftime("%d/%m/%Y",data_inicio) AS "data de início", strftime("%d/%m/%Y",data_fim) AS "data de término" FROM projeto ORDER BY nome COLLATE NOCASE';
+  	var sql = 'SELECT nome, strftime("%d/%m/%Y",data_inicio) AS "data de início", strftime("%d/%m/%Y",data_fim) AS "data de término" FROM projeto ORDER BY nome COLLATE NOCASE';
 	db.all(sql, [],  (err, rows ) => {
 		if (err) {
 		    throw err;
@@ -48,7 +48,7 @@ app.get('/alocacoes', (req, res) => {
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
-  var sql = "SELECT  strftime('%d/%m/%Y',data_alocacao) AS 'data de alocação', projeto.nome, usuario.nome, qtde_horas \
+  	var sql = "SELECT  strftime('%d/%m/%Y',data_alocacao) AS 'data de alocação', projeto.nome, usuario.nome, qtde_horas \
              FROM alocacao \
              INNER JOIN projeto ON alocacao.cod_projeto = projeto.cod_projeto  \
              INNER JOIN usuario ON alocacao.cod_usuario = usuario.cod_usuario  \
@@ -56,6 +56,25 @@ app.get('/alocacoes', (req, res) => {
 	db.all(sql, [],  (err, rows ) => {
 		if (err) {
 		    throw err;
+		}
+		res.json(rows);
+	});
+	db.close(); // Fecha o banco
+});
+
+app.get('/alocacao-por-usuario', (req, res) => {
+	res.statusCode = 200;
+	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+
+	var db = new sqlite3.Database(DBPATH); // Abre o banco
+	var sql = "SELECT usuario.nome AS 'Nome do Usuário', projeto.nome AS 'Nome do Projeto',  SUM(qtde_horas) as 'Quantidade de horas alocadas no projeto' \
+				FROM alocacao \
+				INNER JOIN projeto ON alocacao.cod_projeto = projeto.cod_projeto  \
+				INNER JOIN usuario ON alocacao.cod_usuario = usuario.cod_usuario  \
+				GROUP BY usuario.cod_usuario, projeto.cod_projeto";
+	db.all(sql, [],  (err, rows ) => {
+		if (err) {
+			throw err;
 		}
 		res.json(rows);
 	});
