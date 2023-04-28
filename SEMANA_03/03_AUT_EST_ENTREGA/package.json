@@ -1,0 +1,31 @@
+{
+  "name": "curriculum_backend",
+  "version": "1.0.0",
+  "description": "A backend that send the storaged resumes in database",
+  "main": "get_curriculums.js",
+  "scripts": {
+    "test": "nodemon get_curriculums.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YanMCoutinho/Mod_2_inteli.git"
+  },
+  "keywords": [
+    "curriculum",
+    "TIL",
+    "today",
+    "I",
+    "learn"
+  ],
+  "author": "Yan M Coutinho",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YanMCoutinho/Mod_2_inteli/issues"
+  },
+  "homepage": "https://github.com/YanMCoutinho/Mod_2_inteli#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22",
+    "sqlite3": "^5.1.6"
+  }
+}
