@@ -1,45 +1,15 @@
-# Exercício para entrega na SEMANA 3 - referente ao conteúdo trabalhado na etapa 2 (`SEMANA02/02_TUTORIAL`)
+# Exercício para entrega na SEMANA 3 - referente ao conteúdo na etapa 3 (`SEMANA03/02_TUTORIAL`)
 
 ## Descrição
-Até este momento, pelo fato de não estarmos construindo o frontend de seu currículo, é preciso apresentar uma base sólida na camada de persistência, através da criação das consultas (SELECT) para todas as áreas.
+Atualize seu seu projeto individual do currículo profissional incluindo 5 endpoints para gerenciar uma das tabelas/áreas criadas, o que chamamos de CRUD.
 
-Vamos relembrar a estrutura apresentada na SEMANA 2:
+Por exemplo, se você tiver criado a tabela formacao, deveria criar os seguintes endpoints:
 
-<p style="text-align: center;"><img src="curriculo.png" width="80%"></p>
-
-Por exemplo, uma possível consulta seria:
-
-```sql
-    SELECT titulo, descricao, data_inicio, data_fim FROM formacao ORDER BY data_fim DESC;
-```
-De acordo com a sua estrutura física do banco de dados, crie todas as consultas necessárias e as materialize por meio dos endpoints no arquivo app.js (que deve ser criado). Utilize para começar o exemplo a seguir, e não se esqueça dos demais endpoints, como experiencias, realizacoes e dadospessoais:
-
-```node
-    const express = require('express'); 
-    const app = express();
-
-    const hostname = '127.0.0.1';
-    const port = 3000;
-    const sqlite3 = require('sqlite3').verbose();
-    const DBPATH = 'curriculo.db'; //use o nome que você achar melhor para o banco de dados
-
-    app.use(express.json());
-    app.get('/formacao', (req, res) => {
-        res.statusCode = 200;
-        res.setHeader('Access-Control-Allow-Origin', '*'); 
-        var db = new sqlite3.Database(DBPATH); // Abre o banco
-        var sql = 'SELECT titulo, descricao, data_inicio, data_fim FROM formacao ORDER BY data_fim DESC';
-        db.all(sql, [],  (err, rows ) => {
-            if (err) {
-                throw err;
-            }
-            res.json(rows);
-        });
-        db.close(); // Fecha o banco
-    });
-```
-
+#/listaFormacao (SELECT)
+#/insereFormacao (INSERT)
+#/atualizaFormacao (UPDATE, lembrando que para atualizar é preciso ter dois endpoints, um get e outro post)
+#/removeFormacao (DELETE)
 
 ## Forma de entrega
-- Publique a sua solução no seu Github pessoal (criado com o e-mail Inteli conforme instruído no tutorial da Semana 1).
-- Na resposta ao card no Adalove, inclua o link direto para a respectiva entrega.
+- Publique a sua solução no seu Github pessoal (criado com o e-mail Inteli conforme instruído no tutorial da Semana 1)
+- Na resposta ao card na Adalove, inclua o link para o seu Github
