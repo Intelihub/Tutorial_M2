@@ -1,294 +1,156 @@
-# Etapa 4 - CRUD: Create, Read, Update, Delete
 
-Essa etapa tem por objetivo introduzir conceitos de criação, leitura, atualização e deleção de dados no banco de dados.
+# Etapa 4 - Introdução a Javascript
+
   
+
+Esta etapa tem por objetivo mostrar como aplicar Javascript para incluir scripts com lógica algorítmica na sua aplicação web.
+
+  
+## Glossário
+
+### Relacionados ao seu repositório pessoal
+
+- `Seu repositório`: seu repositório, existente na **sua conta do Github** criado a partir do [Template_Aluno](https://github.com/Intelihub/Template_Aluno), usado para todas as entregas individuais do módulo.
+- `Seu diretório desta etapa`: diretório correspondente à etapa desta semana do tutorial no seu repositório (`02_TUTORIAL/Semana3`).
 
 ### Relacionados ao repositório dos professores
 
 - `Este repositório`: repositório [Tutorial_M2](https://github.com/Intelihub/Tutorial_M2) utilizado pelos professores para disponibilizar as etapas do tutorial do módulo e os exercícios individuais.
-- `Este diretório`: diretório apresentado nesta página, correspondente a todos os arquivos disponibilizados à etapa desta semana do tutorial (`TUTORIAL_M2/SEMANA_04/02_TUTORIAL`).
+- `Este diretório`: diretório apresentado nesta página, correspondente a todos os arquivos disponibilizados à etapa desta semana do tutorial (`TUTORIAL_M2/SEMANA_03/02_TUTORIAL`).
 
-### Preparação
 
-Antes de começar a execução das instruções desta etapa, copie para o **seu diretório desta etapa** o conteúdo (todos os arquivos) do seu diretório da etapa anterior (`02_TUTORIAL/Semana 4`).
 
-* Perceba que a partir dessa etapa, você deve criar o diretório da semana no seu respositório :)
 
-1. Banco de dados 
-Para este tutorial, é fundamental que exista um banco de dados com o nome dbUser.db, no diretório data, e com a seguinte estrutura, que pode ser utilizada na aplicação DB Browser for SQLite:
+## Preparação
 
-```sql
-    CREATE TABLE "usuario" (
-        "userId"	INTEGER NOT NULL,
-        "nome_completo"	char(128) NOT NULL,
-        "email"	char(55) NOT NULL,
-        "telefone"	char(14),
-        PRIMARY KEY("userId" AUTOINCREMENT)
-    )
-````
-2. "Front-end"
+Antes de começar a execução das instruções desta etapa:
+1. Como a proposta é a de apresentar o funcionamento da Linguagem de Programação Javascript, não será preciso ter necessariamente um servidor web. Por esse motivo usaremos o seguinte código em Node.js:
 
-O desenvolvimento do front-end ainda não é uma preocupação, porém é super importante mostrar o resultado final de um endpoint (no caso /usuarios) sendo exibido no formato html? 
-Sendo assim, basta criar o arquivo chamado index.html e colocá-lo na pasta frontend, contendo o seguinte código:
+```
+const express = require('express'); 
+const app = express();
 
-```html
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <meta name="viewport" content="width=device-width" />
-        <title>CRUD</title>
-    </head>
-    <h1>Listagem de Usuários</h1>
-    <p><a href="/inserir.html">INSERIR NOVO USUÁRIO</a></p>
+const hostname = '127.0.0.1';
+const port = 3031;
+app.use(express.static("public"));
 
-    <script>
-        const url = '/usuarios';
-    
-        fetch(url)
-        .then((response) => {
-            return response.json();
-        })
-        .then((data) => {
-            let usuarios = data;
-            let saida = '';
-            usuarios.map(function(usuario) {
-            saida += '<strong> '+ `${usuario.nome_completo}` + '</strong> ' + `${usuario.email}`  + ' - ' +  `${usuario.telefone}`;
-            saida += ' - <a href="/atualizaUsuario?idUser=' + `${usuario.userId}` + '">EDITAR</a>';
-            saida += ' | <a href="/removeUsuario?idUser='+`${usuario.userId}`+'">REMOVER</a></br>';
-            });
-            document.getElementById('resultado').innerHTML = saida;
-        })
-        .catch(function(error) {
-            console.log(error);
-        });
-        
-    </script>
-
-    <body>
-        <div id="resultado"></div>
-    </body>
-    </html>
+app.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
 ```
 
-2. "Back-end"
+2. No **seu diretório desta etapa** (`02_TUTORIAL/Semana 3`), crie o arquivo app_31.js e cole o código apresentado.
 
-Uma aplicação web é composta por uma série de requisições e respostas, e se as requisições exigem uma camada de persistência, é preciso fornecer todas operações para que os dados sejam armazenados. Estamos falando nesse caso do chamado CRUD, ou seja, CREATE (INSERT), READ (SELECT), UPDATE e DELETE. 
+3. Como o script app_31.js aponta um diretório chamado public, é preciso criar exatamente com esse nome, no mesmo local. 
+	
+4. Para o perfeito funcionamento do tutorial, dentro do diretório public devemos ter essencialmente três arquivos, um chamado index.html, outro style.css e o último chamado script.js
 
-Para facilitar o entendimento, vamos imaginar que precisamos gerenciar os registros de usuários em nosso banco dbUser.db e dentro da tabela usuario.
+## Instruções
 
-E como as requisições no final das contas são endpoints, precisamos criá-los dentro do script app_41.js, o qual deve também existir dentro da pasta backend com o seguinte código:
+Considerando arquivos presentes no **seu diretório desta etapa**:
+1. No arquivo `index.html` do subdiretório `public`:
+		
+	```html 
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<title>ETAPA 3</title>
+		<link rel="stylesheet" href="style.css" />	
+		<script src="script.js"></script>
 
+	</head>
+	<body>
+		<div id="main">
+			<h1>ETAPA 3</h1>
+			Introdução a Javascript
+			<div id="calc" class="sections">
+				<h3>Fazendo alguns cálculos</h3>
+				Cálculos realizados e respectivos resultados obtidos:
+			</div>
+			<button onclick="calcula(10, 50)" class="button-calc">Calcular 10 + 50</button>
+		</div>
+	</body>
+	</html>
+	``` 
+2. No arquivo script.js, é preciso inserir o seguinte código:
 
-```node
-    const express = require('express'); 
-    const bodyParser = require('body-parser');
-    const urlencodedParser = bodyParser.urlencoded({ extended: false })
+	```javascript 
+	/* Função que calcula uma soma e mostra a operação realizada e o resultado obtido */
+	function calcula(x, y){
+		var op = "+";
+		var resultado;
+		if (op == "+") {
+			resultado = x + y;
+		};
+		document.getElementById("saida").innerHTML = `${x} ${op} ${y} = ${resultado}`;
+		console.log(`<br /> ${x} ${op} ${y} = ${resultado}`)
+	}
+	```
 
-    const sqlite3 = require('sqlite3').verbose();
-    const DBPATH = '../data/dbUser.db';
+3. Como não poderia faltar o glamour, precisamos ter um pouco de estilo, e para isso o seguinte conteúdo precisa ser colocado no arquivo style.css:
 
-    const hostname = '127.0.0.1';
-    const port = 3000;
-    const app = express();
+	```css 
+		body, html { 
+		width: 100%;
+		height: 100%;
+		background-color: #acb1bf;
+		margin: 0;
+		color: #ff4645;
+		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+		}
 
-    /* Colocar toda a parte estática no frontend */
-    app.use(express.static("../frontend/"));
+		h1{
+			background-color: #ff4645;
+			color: white;
+		}
 
-    /* Definição dos endpoints */
-    /******** CRUD ************/
-    app.use(express.json());
+		#main {
+			max-width: 800px;
+			min-height: 100%;
+			margin: 0 auto;
+			background-color: #FFFFFF;
+			padding: 1rem;
+			text-align: center;
+		}
 
-    // Retorna todos registros (é o R do CRUD - Read)
-    app.get('/usuarios', (req, res) => {
-        res.statusCode = 200;
-        res.setHeader('Access-Control-Allow-Origin', '*');
-        var db = new sqlite3.Database(DBPATH); // Abre o banco
-        var sql = 'SELECT * FROM usuario ORDER BY nome_completo COLLATE NOCASE';
-            db.all(sql, [],  (err, rows ) => {
-                if (err) {
-                    throw err;
-                }
-                res.json(rows);
-            });
-            db.close(); // Fecha o banco
-    });
+		.sections{
+			padding: 3em;
+		}
 
-    // Insere um registro (é o C do CRUD - Create)
-    app.post('/insereUsuario', urlencodedParser, (req, res) => {
-        res.statusCode = 200;
-        res.setHeader('Access-Control-Allow-Origin', '*'); 
-        var db = new sqlite3.Database(DBPATH); // Abre o banco
-        sql = "INSERT INTO usuario (nome_completo, email, telefone) VALUES ('" + req.body.nome + "', '" + req.body.email + "', " + req.body.telefone + ")";
-        console.log(sql);
-        db.run(sql, [],  err => {
-            if (err) {
-                throw err;
-            }	
-        });
-        res.write('<p>USUARIO INSERIDO COM SUCESSO!</p><a href="/">VOLTAR</a>');
-        db.close(); // Fecha o banco
-        res.end();
-    });
+		#saida{
+			color: #547aa5;
+			border: #ff4645 solid 5px;
+			width: 200px;
+			height: 40px;
+			text-align: center;
+			line-height: 40px;
+			margin: 20px auto;
+		}
 
-    // Monta o formulário para o update (é o U do CRUD - Update)
-    app.get('/atualizaUsuario', (req, res) => {
-        res.statusCode = 200;
-        res.setHeader('Access-Control-Allow-Origin', '*'); 
-        sql = "SELECT * FROM usuario WHERE userId="+ req.query.userId;
-        console.log(sql);
-        var db = new sqlite3.Database(DBPATH); // Abre o banco
-        db.all(sql, [],  (err, rows ) => {
-            if (err) {
-                throw err;
-            }
-            res.json(rows);
-        });
-        db.close(); // Fecha o banco
-    });
+		button {
+			padding: 3;
+			border: none;
+			font: inherit;
+			cursor: pointer;	
+			border-radius: 5px;
+			font-weight: 500;
+			color: white;
+			width: 150px;
+			box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+						0 3px 1px -2px rgba(0, 0, 0, 0.12), 
+						0 1px 5px 0 rgba(0, 0, 0, 0.2);
+		}
 
-    // Atualiza um registro (é o U do CRUD - Update)
-    app.post('/atualizaUsuario', urlencodedParser, (req, res) => {
-        res.statusCode = 200;
-        res.setHeader('Access-Control-Allow-Origin', '*'); 
-        sql = "UPDATE usuario SET nome_completo='" + req.body.nome + "', email = '" + req.body.email + "' , telefone='" + req.body.telefone + "' WHERE userId='" + req.body.userId + "'";
-        console.log(sql);
-        var db = new sqlite3.Database(DBPATH); // Abre o banco
-        db.run(sql, [],  err => {
-            if (err) {
-                throw err;
-            }
-            res.end();
-        });
-        res.write('<p>USUARIO ATUALIZADO COM SUCESSO!</p><a href="/">VOLTAR</a>');
-        db.close(); // Fecha o banco
-    });
+		.button-calc{
+			background-color: #547aa5;
+		}
+	```
 
-    // Exclui um registro (é o D do CRUD - Delete)
-    app.get('/removeUsuario', urlencodedParser, (req, res) => {
-        res.statusCode = 200;
-        res.setHeader('Access-Control-Allow-Origin', '*'); 
-        sql = "DELETE FROM usuario WHERE userId='" + req.query.userId + "'";
-        console.log(sql);
-        var db = new sqlite3.Database(DBPATH); // Abre o banco
-        db.run(sql, [],  err => {
-            if (err) {
-                throw err;
-            }
-            res.write('<p>USUARIO REMOVIDO COM SUCESSO!</p><a href="/">VOLTAR</a>');
-            res.end();
-        });
-        db.close(); // Fecha o banco
-    });
-
-    app.listen(port, hostname, () => {
-    console.log(`Servidor rodando em http://${hostname}:${port}/`);
-    });
-```
-É importante ter também o arquivo package.json para facilitar a instalação automatizada das dependências:
-
-```node
-    {
-    "dependencies": {
-        "express": "^4.18.2",
-        "sqlite3": "^5.1.2"
-        }
-    }
-```
-
-O código é bem denso, pois envolve todos os endpoints para gerenciamento dos dados de uma simples tabela. Agora imagine um banco de dados que contenha 10 tabelas? Entendeu o tamanho da brincadeira?
-
-Se você perceber temos 5 endpoints relacionados diretamente com a tabela usuario: 
-
-1. /usuarios: lista todos os usuários da tabela
-2. /insereUsuario: este endpoint é chamado através de um método post, vindo de um formulário web (arquivo inserir.html na pasta frontend)
-3. /atualizaUsuario: existem dois endpoints com o mesmo nome, porém um utilizando o método get e o outro com o método post. Isso indica que primeiro precisamos preencher um formulário web com os dados de um determinado usuário da tabela, para que a partir desse form (contido no arquivo atualizar.html), seja feita a execução do UPDATE. 
-4. /removeUsuario: este endpoint utiliza o método get para remover um usuário da tabela (poderia ser utilizado também o método post)
-
-## Demais arquivos 
-
-Para a finalização do tutorial, é preciso ciar os arquivos inserir.html e atualizar.html, dentro da pasta frontend:
-
-#atualizar.html
-```html
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <meta name="viewport" content="width=device-width" />
-        <title>CRUD</title>
-    </head>
-    <h1>Atualização de Usuário</h1>
-        <form name="form1" method="post" action="/atualizaUsuario">
-            NOME COMPLETO: <input type="text" id="nome" name="nome" size="50" value="">
-            <br>
-            EMAIL: <input type="e-mail" id="email" name="email" value="">
-            <br>
-            TELEFONE: <input type="phone" id="telefone" name="telefone" value="">
-            <br>
-            <input type="hidden" id="userId" name="userId" value="">
-            <input type="submit" value="ATUALIZAR">  
-        </form>    
-        <script>
-            let url = new URL(window.location.href);
-            let params = url.searchParams;
-            url = '/atualizaUsuario?userId='+url.searchParams.get("userId");
-
-            fetch(url)
-            .then((response) => {
-                return response.json();
-            })
-            .then((data) => {
-                let usuarios = data;
-
-                usuarios.map(function(usuario) {
-                    document.getElementById('userId').value = usuario.userId;
-                    document.getElementById('nome').value = usuario.nome_completo;
-                    document.getElementById('email').value = usuario.email;
-                    document.getElementById('telefone').value = usuario.telefone;
-                });
-                alert(response.json());
-            })
-            .catch(function(error) {
-                console.log(error);
-            });
-        </script>
-    </body>
-    </html>
-```
-
-#inserir.html
-```html
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>INSERIR USUÁRIO</title>
-    </head>
-    <body>
-    <form name="form1" method="post" action="/insereUsuario">
-        NOME: <input type="text" name="nome" value="" required>
-        <br>
-        EMAIL: <input type="email" name="email" value="" required>
-        <br>
-        TELEFONE: <input type="tel" id="phone" name="telefone" placeholder="11-12345-6789" pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}" required>
-        <br>
-        <input type="submit" value="INSERIR">  
-    </form>    
-    </body>
-    </html>
-```
-
-### Funcionamento do CRUD
-  
-1. No subdiretório `backend`, execute "npm i" para instalar os módulos obrigatórios.
-2. Execute o comando `node app_41.js`
-3. Abra no navegador o endereço que consta no terminal (`localhost:3000`) e observe que não existem usuários aparecendo na tela. Motivo: não existem registro no banco, portanto é preciso inserir um NOVO USUÁRIO.
-4. A partir da inserção do usuário é possível fazer todo o gerenciamento dos dados por meio das interfaces, sem depender da aplicação DB Browser for SQLite.
+4. Depois da receita feita, abra seu terminal, e execute `node app_31.js`.
+5. Abra no navegador o endereço que consta no terminal (`localhost:3031`) e observe a linha informando o cálculo que foi realizado via javascript e seu respectivo resultado. 
+6. Desafio: altere o tutorial transformando em uma calculadora completa, acrescentando as operação de subtração, multiplicação e divisão, além da soma é claro. Agora é a sua vez!!!
 
 **Caso não tenha conseguido conseguido executar algum ponto conforme aqui indicado, tire suas dúvidas com o instrutor de programação :)**
-
