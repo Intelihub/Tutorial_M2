@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width" />
+    <title>CRUD</title>
+  </head>
+  <h1>Listagem de Usuários</h1>
+  <p><a href="/inserir.html">INSERIR NOVO USUÁRIO</a></p>
+
+  <script>
+    const url = '/usuarios';
+  
+    fetch(url)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        let usuarios = data;
+        let saida = '';
+        usuarios.map(function(usuario) {
+          saida += '<strong> '+ `${usuario.nome_completo}` + '</strong> ' + `${usuario.email}`  + ' - ' +  `${usuario.telefone}`;
+          saida += ' - <a href="/atualizar.html?userId=' + `${usuario.userId}` + '">EDITAR</a>';
+          saida += ' | <a href="/removeUsuario?userId='+`${usuario.userId}`+'">REMOVER</a></br>';
+        });
+        document.getElementById('resultado').innerHTML = saida;
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+      
+
+  </script>
+
+  <body>
+    <div id="resultado"></div>
+  </body>
+</html>
