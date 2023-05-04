@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INSERIR CURRÍCULO</title>
+</head>
+<body>
+<form name="form" method="post" action="/insert-resume">
+    <label for="curriculum_name">Nome</label>
+    <input type="text" name="curriculum_name" id="curriculum_name" required>
+    <br>
+    
+    <label for="curriculum_job_role">Cargo</label>
+    <input type="text" name="curriculum_job_role" id="curriculum_job_role" required>
+    <br>
+
+    <label for="curriculum_address">Endereço</label>
+    <input type="text" name="curriculum_address" id="curriculum_address" required>
+    <br>
+
+    <label for="curriculum_phone">Telefone</label>
+    <input type="tel" name="curriculum_phone" id="curriculum_phone" minlength="11" placeholder="11999996666" required>
+    <br>
+
+    <label for="curriculum_email">Email</label>
+    <input type="email" name="curriculum_email" id="curriculum_email" required>
+    <br>
+    
+    <label for="curriculum_desc">Descrição</label>
+    <textarea type="text" name="curriculum_desc" id="curriculum_desc" required></textarea>
+    <br>
+
+    <input type="id_curriculum_vitae" name="id_curriculum_vitae" id="id_curriculum_vitae" required hidden readonly>
+
+    <input type="submit" value="INSERIR">  
+</form>    
+</body>
+</html>

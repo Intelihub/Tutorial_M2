@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width" />
+    <title>CRUD</title>
+  </head>
+  <h1>Atualização de Currículo</h1>
+
+    <form name="form" method="post" action="/update-resume">
+        <label for="curriculum_name">Nome</label>
+        <input type="text" name="curriculum_name" id="curriculum_name" required>
+        <br>
+        
+        <label for="curriculum_job_role">Cargo</label>
+        <input type="text" name="curriculum_job_role" id="curriculum_job_role" required>
+        <br>
+
+        <label for="curriculum_address">Endereço</label>
+        <input type="text" name="curriculum_address" id="curriculum_address" required>
+        <br>
+
+        <label for="curriculum_phone">Telefone</label>
+        <input type="tel" name="curriculum_phone" id="curriculum_phone" minlength="11" placeholder="11999996666" required>
+        <br>
+
+        <label for="curriculum_email">Email</label>
+        <input type="email" name="curriculum_email" id="curriculum_email" required>
+        <br>
+        
+        <label for="curriculum_desc">Descrição</label>
+        <textarea type="text" name="curriculum_desc" id="curriculum_desc" required></textarea>
+        <br>
+
+        <input type="id_curriculum_vitae" name="id_curriculum_vitae" id="id_curriculum_vitae" required hidden readonly>
+
+        <input type="submit" value="ATUALIZAR">  
+    </form>    
+
+    <script>
+        let url = new URL(window.location.href);
+        let params = url.searchParams;
+        url = '/update-resume?id_curriculum_vitae=' +
+        url.searchParams.get("id_curriculum_vitae");
+
+        fetch(url)
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            let resumes = data;
+
+            resumes.map(function(resume) {
+                document.getElementById('id_curriculum_vitae').value = resume.id_curriculum_vitae;
+                document.getElementById('curriculum_name').value = resume.curriculum_name;
+                document.getElementById('curriculum_job_role').value = resume.curriculum_job_role;
+                document.getElementById('curriculum_address').value = resume.curriculum_address;
+                document.getElementById('curriculum_phone').value = resume.curriculum_phone;
+                document.getElementById('curriculum_email').value = resume.curriculum_email;
+                document.getElementById('curriculum_desc').value = resume.curriculum_desc;
+            });
+            alert(response.json());
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+    </script>
+</body>
+</html>
