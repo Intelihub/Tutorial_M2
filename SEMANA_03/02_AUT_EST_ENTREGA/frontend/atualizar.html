@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width" />
+    <title>CRUD</title>
+  </head>
+  <h1>Atualização de Usuário</h1>
+
+    <form name="form1" method="post" action="/atualiza-dados">
+        Nome : <input type="text" id ="nome" name="nome" value="" required>
+        <br>
+        Email : <input type="email" id ="email" name="email" value="" required>
+        <br>
+        Telefone : <input type="tel" id="telefone" name="phone" required>
+        <br>
+        CEP: <input type="number" id="cep" name = "cep" value="" required>
+        <br>
+        Endereço : <input type="text" id = "endereco" name = "address" value = "" required>
+        <br>
+        Descrição : <input type="text" id="descricao" name = "description" value="" required>
+        <br>
+        Cargo:<input type="text" id="cargo" name = "cargo" value="" required>
+        <br>
+        Foto:<input type="url" id="foto" name="photo" value="" required>
+        <br>
+        <input type="hidden" id="id_pessoa" name="id_pessoa" value="">
+        <input type="submit" value="ATUALIZAR">  
+    </form>    
+
+    <script>
+        let url = new URL(window.location.href);
+        let params = url.searchParams;
+        url = '/atualiza-dados?id_pessoa='+url.searchParams.get("id_pessoa");
+
+        fetch(url)
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            let info_pessoa = data;
+            console.log(info_pessoa);
+            info_pessoa.map(function(info_pessoa) {
+                document.getElementById('id_pessoa').value = info_pessoa.id_pessoa;
+                document.getElementById('nome').value = info_pessoa.nome;
+                document.getElementById('cep').value = info_pessoa.cep;
+                document.getElementById('telefone').value = info_pessoa.telefone;
+                document.getElementById('endereco').value = info_pessoa.endereco;
+                document.getElementById('descricao').value = info_pessoa.descricao;
+                document.getElementById('cargo').value = info_pessoa.cargo;
+                document.getElementById('foto').value = info_pessoa.foto;
+                document.getElementById('email').value = info_pessoa.email;
+            });
+            alert(response.json());
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+    </script>
+</body>
+</html>
