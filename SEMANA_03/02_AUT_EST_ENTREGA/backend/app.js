@@ -2,9 +2,9 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
-app.use(express.static("../frontend/"));
+app.use(express.static("../frontend/")); // Serve HTML files
 app.use(express.json());
-app.use(bodyParser.json())
+app.use(bodyParser.json()) // Parse body of POST requests
 app.use(
     bodyParser.urlencoded({
         extended: true,
@@ -14,12 +14,13 @@ app.use(
 // SQLite
 const sqlite3 = require('sqlite3').verbose();
 const DBPATH = '../data/dbUser.db';
+// NOTE: We declare the DB on each request so we don't keep a connection open
 
 // READ
 app.get('/listaFormacao', (req, res) => {
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
-    let db = new sqlite3.Database(DBPATH); // Abre o banco
+    let db = new sqlite3.Database(DBPATH);
     let sql = 'SELECT * FROM formations ORDER BY end_year COLLATE NOCASE';
     db.all(sql, [], (err, rows) => {
         if (err) {
@@ -27,14 +28,14 @@ app.get('/listaFormacao', (req, res) => {
         }
         res.json(rows);
     });
-    db.close(); // Fecha o banco
+    db.close();
 })
 
 // CREATE
 app.post('/insereFormacao', (req, res) => {
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
-    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    var db = new sqlite3.Database(DBPATH);
 
     // AVISO: Há SQL Injection aqui!
     sql = `INSERT INTO formations (curriculum_id, name, start_year, end_year, description)
@@ -47,7 +48,7 @@ app.post('/insereFormacao', (req, res) => {
         }
     });
     res.write('<p>Sucesso!</p><a href="/index.html">Voltar</a>');
-    db.close(); // Fecha o banco
+    db.close();
     res.end();
 })
 
@@ -57,14 +58,14 @@ app.get('/atualizaFormacao', (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     sql = "SELECT * FROM formations WHERE formation_id=" + req.query.id;
     console.log(sql);
-    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    var db = new sqlite3.Database(DBPATH);
     db.all(sql, [], (err, rows) => {
         if (err) {
             throw err;
         }
         res.json(rows);
     });
-    db.close(); // Fecha o banco
+    db.close();
 })
 
 app.post('/atualizaFormacao', (req, res) => {
@@ -77,7 +78,7 @@ app.post('/atualizaFormacao', (req, res) => {
                description='${req.body.description}'
            WHERE formation_id = ${req.body.id};`
     console.log(sql);
-    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    var db = new sqlite3.Database(DBPATH);
     db.run(sql, [], err => {
         if (err) {
             throw err;
@@ -85,7 +86,7 @@ app.post('/atualizaFormacao', (req, res) => {
         res.end();
     });
     res.write('<p>Atualizado!</p><a href="/">Voltar</a>');
-    db.close(); // Fecha o banco
+    db.close();
 })
 
 
@@ -96,7 +97,7 @@ app.get('/removeFormacao', (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     sql = "DELETE FROM formations WHERE formation_id='" + req.query.id + "'";
     console.log(sql);
-    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    var db = new sqlite3.Database(DBPATH);
     db.run(sql, [], err => {
         if (err) {
             throw err;
@@ -104,7 +105,7 @@ app.get('/removeFormacao', (req, res) => {
         res.write('<p>Formacao Removida!</p><a href="/index.html">Voltar</a>');
         res.end();
     });
-    db.close(); // Fecha o banco
+    db.close();
 })
 
 // Start server
