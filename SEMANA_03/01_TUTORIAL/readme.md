@@ -78,7 +78,7 @@ Uma aplicação web é composta por uma série de requisições e respostas, e s
 
 Para facilitar o entendimento, vamos imaginar que precisamos gerenciar os registros de usuários em nosso banco dbUser.db e dentro da tabela usuario.
 
-E como as requisições no final das contas são endpoints, precisamos criá-los dentro do script app_41.js, o qual deve também existir dentro da pasta backend com o seguinte código:
+E como as requisições no final das contas são endpoints, precisamos criá-los dentro do script app.js, o qual deve também existir dentro da pasta backend com o seguinte código:
 
 
 ```node
@@ -286,7 +286,7 @@ Para a finalização do tutorial, é preciso ciar os arquivos inserir.html e atu
 ### Funcionamento do CRUD
   
 1. No subdiretório `backend`, execute "npm i" para instalar os módulos obrigatórios.
-2. Execute o comando `node app_41.js`
+2. Execute o comando `node app.js`
 3. Abra no navegador o endereço que consta no terminal (`localhost:3000`) e observe que não existem usuários aparecendo na tela. Motivo: não existem registro no banco, portanto é preciso inserir um NOVO USUÁRIO.
 4. A partir da inserção do usuário é possível fazer todo o gerenciamento dos dados por meio das interfaces, sem depender da aplicação DB Browser for SQLite.
 
