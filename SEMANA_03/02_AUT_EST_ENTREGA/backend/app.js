@@ -32,7 +32,23 @@ app.get('/listaFormacao', (req, res) => {
 
 // CREATE
 app.post('/insereFormacao', (req, res) => {
-    res.json({info: 'Node.js, Express, and Postgres API'})
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+
+    // AVISO: Há SQL Injection aqui!
+    sql = `INSERT INTO formations (curriculum_id, name, start_year, end_year, description)
+           VALUES (1, '${req.body.name}', '${req.body.start_year}', '${req.body.end_year}', '${req.body.description}
+                   ');`;
+    console.log(sql);
+    db.run(sql, [], err => {
+        if (err) {
+            throw err;
+        }
+    });
+    res.write('<p>Sucesso!</p><a href="/index.html">Voltar</a>');
+    db.close(); // Fecha o banco
+    res.end();
 })
 
 // UPDATE
@@ -40,15 +56,15 @@ app.get('/atualizaFormacao', (req, res) => {
     res.json({info: 'Node.js, Express, and Postgres API'})
 })
 
-// DELETE
-app.delete('/removeFormacao', (req, res) => {
-    res.json({info: 'Node.js, Express, and Postgres API'})
-})
-
 app.post('/atualizaFormacao', (req, res) => {
     res.json({info: 'Node.js, Express, and Postgres API'})
 })
 
+
+// DELETE
+app.delete('/removeFormacao', (req, res) => {
+    res.json({info: 'Node.js, Express, and Postgres API'})
+})
 
 // Start server
 app.listen(3000, () => {
