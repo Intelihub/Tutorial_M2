@@ -22,7 +22,7 @@
             formacoes.map(function (formacao) {
                 saida += '<strong> ' + `${formacao.name}` + '</strong> - ' + `${formacao.start_year}` + ' - ' + `${formacao.end_year}`;
                 saida += ' - <a href="/update.html?id=' + `${formacao.formation_id}` + '">Editar</a>';
-                saida += ' | <a href="/atualizaFormacao?id=' + `${formacao.formation_id}` + '">Remover</a></br>';
+                saida += ' | <a href="/removeFormacao?id=' + `${formacao.formation_id}` + '">Remover</a></br>';
             });
             document.getElementById('resultado').innerHTML = saida;
         })

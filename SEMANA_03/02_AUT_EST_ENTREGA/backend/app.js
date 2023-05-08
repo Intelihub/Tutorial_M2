@@ -62,8 +62,21 @@ app.post('/atualizaFormacao', (req, res) => {
 
 
 // DELETE
-app.delete('/removeFormacao', (req, res) => {
-    res.json({info: 'Node.js, Express, and Postgres API'})
+// The correct verb would be DELETE, but I kept GET for simplicity
+app.get('/removeFormacao', (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    sql = "DELETE FROM formations WHERE formation_id='" + req.query.id + "'";
+    console.log(sql);
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    db.run(sql, [], err => {
+        if (err) {
+            throw err;
+        }
+        res.write('<p>Formacao Removida!</p><a href="/index.html">Voltar</a>');
+        res.end();
+    });
+    db.close(); // Fecha o banco
 })
 
 // Start server
