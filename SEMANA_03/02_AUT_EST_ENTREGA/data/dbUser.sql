@@ -76,6 +76,14 @@ CREATE TABLE IF NOT EXISTS "formations"
 
     PRIMARY KEY ("formation_id" AUTOINCREMENT),
     FOREIGN KEY ("curriculum_id") REFERENCES "curricula" ("curriculum_id"),
-    CONSTRAINT level_between_1_6 CHECK (start_year >= end_year)
+    CONSTRAINT level_between_1_6 CHECK (start_year <= end_year)
 );
+
+INSERT INTO curricula (first_name, last_name, role, gravatar_URL, address, phone_number, email, biography)
+VALUES ('John', 'Doe', 'Web Developer', 'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50',
+        '1234 Main St', '555-555-5555', 'teste@example.com', 'Lorem ipsum');
+
+INSERT INTO formations (curriculum_id, name, start_year, end_year, description)
+VALUES (1, 'Formation 1', 2010, 2012, 'Lorem ipsum');
+
 COMMIT;
