@@ -53,11 +53,39 @@ app.post('/insereFormacao', (req, res) => {
 
 // UPDATE
 app.get('/atualizaFormacao', (req, res) => {
-    res.json({info: 'Node.js, Express, and Postgres API'})
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    sql = "SELECT * FROM formations WHERE formation_id=" + req.query.id;
+    console.log(sql);
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    db.all(sql, [], (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        res.json(rows);
+    });
+    db.close(); // Fecha o banco
 })
 
 app.post('/atualizaFormacao', (req, res) => {
-    res.json({info: 'Node.js, Express, and Postgres API'})
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    sql = `UPDATE formations
+           SET name='${req.body.name}',
+               start_year='${req.body.start_year}',
+               end_year='${req.body.end_year}',
+               description='${req.body.description}'
+           WHERE formation_id = ${req.body.id};`
+    console.log(sql);
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    db.run(sql, [], err => {
+        if (err) {
+            throw err;
+        }
+        res.end();
+    });
+    res.write('<p>Atualizado!</p><a href="/">Voltar</a>');
+    db.close(); // Fecha o banco
 })
 
 
