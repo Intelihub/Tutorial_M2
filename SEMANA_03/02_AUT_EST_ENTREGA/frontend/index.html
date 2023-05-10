@@ -20,10 +20,11 @@
         let Cabecalho = data;
         let saida = '';
         Cabecalho.map(function(Cabecalho) {
-          saida += '<strong> '+ `${Cabecalho.Nome}` + '</strong> ' + `${Cabecalho.Email}`  + ' - ' +  `${Cabecalho.Telefone}` + ' - ' `${Cabecalho.Cargo}`;
-          saida += ' - <a href="/atualizar.html?userId=' + `${Cabecalho.Id_pessoa}` + '">EDITAR</a>';
-          saida += ' | <a href="/removeUsuario?userId='+`${Cabecalho.Id_pessoa}`+'">REMOVER</a></br>';
+          saida += '<strong> '+ `${Cabecalho.Nome}` + '</strong> ' + `${Cabecalho.Email}`  + ' - ' +  `${Cabecalho.Telefone}` + ' - ' + `${Cabecalho.Cargo}`;
+          saida += ' - <a href="/atualizar.html?Id_pessoa=' + `${Cabecalho.Id_pessoa}` + '">EDITAR</a>';
+          saida += ' | <a href="/removeUsuario?Id_pessoa='+`${Cabecalho.Id_pessoa}`+'">REMOVER</a></br>';
         });
+        console.log(saida);
         document.getElementById('resultado').innerHTML = saida;
       })
       .catch(function(error) {
