@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width" />
+    <title>CRUD</title>
+  </head>
+  <h1>Atualização do Cabeçalho</h1>
+
+    <form name="form1" method="post" action="/atualizaCabecalho">
+        NOME COMPLETO: <input type="text" id="nome" name="nome" size="50" value="">
+        <br>
+        EMAIL: <input type="e-mail" id="email" name="email" value="">
+        <br>
+        TELEFONE: <input type="phone" id="telefone" name="telefone" value="">
+        <br>
+        CARGO:  <input type="text" id="cargo" name="cargo" size="50" value="">
+        <br>
+        <input type="hidden" id="Id_pessoa" name="Id_pessoa" value="">
+        <input type="submit" value="ATUALIZAR">  
+    </form>    
+
+    <script>
+        let url = new URL(window.location.href);
+        let params = url.searchParams;
+        url = '/atualizaCabecalho?Id_pessoa='+url.searchParams.get("Id_pessoa");
+
+        fetch(url)
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            let Cabecalho = data;
+
+            Cabecalho.map(function(cabecalho) {
+                document.getElementById('Id_pessoa').value = cabecalho.Id_pessoa;
+                document.getElementById('Nome').value = cabecalho.Nome;
+                document.getElementById('Email').value = cabecalho.Email;
+                document.getElementById('Telefone').value = cabecalho.Telefone;
+                document.getElementById('Cargo').value = cabecalho.Cargo;
+            });
+            alert(response.json());
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+    </script>
+</body>
+</html>
