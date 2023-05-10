@@ -1,0 +1,10 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "db_curriculum",
+            "database": "${workspaceFolder:Semana 2}/db_curriculum.db"
+        }
+    ]
+}
