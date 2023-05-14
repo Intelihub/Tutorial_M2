@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width" />
+    <title>CRUD</title>
+  </head>
+  <h1>Listagem de Usuários</h1>
+  <p><a href="/inserir.html">INSERIR NOVO DADOS PESSOAIS</a></p>
+
+  <script>
+    const url = '/cadastrados';
+  
+    fetch(url)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        let info_pessoa = data;   
+        let saida = '';
+        info_pessoa.map(function(info_pessoa) {
+          saida += '<strong> '+ `${info_pessoa.nome}` + '</strong> ' + `${info_pessoa.email}`  + ' - ' +  `${info_pessoa.telefone}`;
+          saida += ' - <a href="/atualizar.html?id_pessoa=' + `${info_pessoa.id_pessoa}` + '">EDITAR</a>';
+          saida += ' | <a href="/remove-cadastro?id_pessoa='+`${info_pessoa.id_pessoa}`+'">REMOVER</a></br>';
+        });
+        document.getElementById("resultado").innerHTML = saida;
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+      
+
+  </script>
+
+<body>
+  <div id="resultado"></div>
+</body>
+</html>
