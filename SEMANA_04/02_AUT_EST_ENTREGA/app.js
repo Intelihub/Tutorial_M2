@@ -8,7 +8,12 @@ const sqlite3 = require('sqlite3').verbose();
 let db = new sqlite3.Database('./database.db');
 
 var indexRouter = require('./routes/index');
+var abilitiesRouter = require('./routes/abilities');
 var curriculaRouter = require('./routes/curricula');
+var experiencesRouter = require('./routes/experiences');
+var formationsRouter = require('./routes/formations');
+var personalitiesRouter = require('./routes/personalities');
+var realizationsRouter = require('./routes/realizations');
 
 var app = express();
 
@@ -29,7 +34,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/abilities', abilitiesRouter);
 app.use('/curricula', curriculaRouter);
+app.use('/experiences', experiencesRouter);
+app.use('/formations', formationsRouter);
+app.use('/personalities', personalitiesRouter);
+app.use('/realizations', realizationsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -2,9 +2,9 @@
 var express = require('express');
 var router = express.Router();
 
-// GET /activities
+// GET /curricula
 router.get('/', (req, res, next) => {
-    const sql = 'SELECT * FROM activities'
+    const sql = 'SELECT * FROM curricula'
 
     req.db.all(sql, [], (err, rows) => {
         if (err) {
@@ -14,9 +14,9 @@ router.get('/', (req, res, next) => {
     });
 });
 
-// GET/activities/:id
+// GET/curricula/:id
 router.get('/:id', (req, res, next) => {
-    const sql = 'SELECT * FROM activities WHERE id = ?'
+    const sql = 'SELECT * FROM curricula WHERE curriculum_id = ?'
 
     req.db.get(sql, [req.params.id], (err, row) => {
         if (err) {
@@ -29,12 +29,12 @@ router.get('/:id', (req, res, next) => {
     });
 });
 
-// POST /activities
+// POST /curricula
 router.post('/', (req, res, next) => {
-    const {name, user_id, classroom_id} = req.body;
-    const sql = 'INSERT INTO activities(name, user_id, classroom_id) VALUES (?, ?, ?)'
+    const {first_name, last_name, role, gravatar_URL, address, phone_number, email, biography} = req.body;
+    const sql = 'INSERT INTO curricula(first_name, last_name, role, gravatar_URL, address, phone_number, email, biography) VALUES (?, ?, ?)'
 
-    req.db.run(sql, [name, user_id, classroom_id], function (err) {
+    req.db.run(sql, [first_name, last_name, role, gravatar_URL, address, phone_number, email, biography], function (err) {
         if (err) {
             return res.status(400).json({error: err.message});
         }
@@ -42,12 +42,12 @@ router.post('/', (req, res, next) => {
     });
 });
 
-// PUT /activities/:id
+// PUT /curricula/:id
 router.put('/:id', (req, res, next) => {
-    const {name, user_id, classroom_id} = req.body;
-    const sql = "UPDATE activities SET name = ?, user_id = ?, classroom_id = ? WHERE id = ?";
+    const {first_name, last_name, role, gravatar_URL, address, phone_number, email, biography} = req.body;
+    const sql = "UPDATE curricula SET first_name = ?, last_name = ?, role = ?, gravatar_URL = ?, address = ?, phone_number = ?, email = ?, biography = ? WHERE curriculum_id = ?";
 
-    req.db.run(sql, [name, user_id, classroom_id, req.params.id], function (err) {
+    req.db.run(sql, [first_name, last_name, role, gravatar_URL, address, phone_number, email, biography], function (err) {
         if (err) {
             return res.status(400).json({error: err.message});
         }
@@ -55,9 +55,9 @@ router.put('/:id', (req, res, next) => {
     });
 });
 
-// DELETE /activities/:id
+// DELETE /curricula/:id
 router.delete('/:id', (req, res, next) => {
-    const sql = 'DELETE FROM activities WHERE id = ?'
+    const sql = 'DELETE FROM curricula WHERE curriculum_id = ?'
 
     req.db.run(sql, req.params.id, function (err) {
         if (err) {
