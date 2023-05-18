@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+:root {
+    font-size: 10px;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    border: 0px solid;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+}
+
+.min-w-320pX {
+    min-width: 320px;
+}
+
+.cols2-or-rows2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 2fr);
+    align-items: center;
+    grid-auto-flow: column;
+    display: grid;
+    grid-template-columns: 150px 1fr;
+}
+
+.number {
+    height: 10px;
+    width: 10px;
+    background-color: black;
+    border-radius: 50%;
+}
+
+.container {
+    width: 100vw;
+    margin: auto;
+    min-height: 100vh;
+    max-width: 850px;
+    border: 2px solid black;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    border-bottom: 2px solid black;
+    
+}
+
+header .img {
+    text-align: center;
+    margin: auto;
+}
+
+.main-info {
+    width: 98%;
+    min-width: 320px;
+    display: flex;
+    padding: 5rem 0;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.main-info .titles {
+    margin-bottom: 2rem;
+}
+
+.main-info .titles h1 {
+    font-size: 5rem;
+    line-height: 5rem;
+    margin-bottom: 0;
+}
+
+.main-info .titles h3 {
+    font-size: 2rem;
+}
+
+.main-info .description h3 {
+    font-size: 2rem;
+}
+
+.main-info .description p {
+    text-align: justify;
+    font-size: 1.2rem;
+    width: 90%;
+}
+
+main {
+    margin: 3rem 0rem;
+}
+
+main > * {
+    margin: 4rem 0;
+}
+
+main h2,
+footer h2 {
+    font-size: 1.7rem;
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+main article:nth-child(2) {
+    height: 100%;
+}
+
+main article:nth-child(2) section h3,
+main article:nth-child(2) section i {
+    font-size: 1.4rem;
+}
+
+main article:nth-child(2) section span {
+    font-weight: 400;
+    font-size: 80%;
+}
+
+main article:nth-child(2) section p {
+    font-size: 1.3rem;
+    width: 98%;
+}
+
+main article:nth-child(2) section .min-info {
+    display: flex;
+    align-items: center;
+    
+}
+
+main article:nth-child(2) section .min-info p {
+    font-size: 1.3rem;
+}
+
+.habilities,
+.personalities {
+    width: 150px; 
+}
+
+.personality,
+.hability {
+    margin-bottom: 4rem;
+}
+
+.personality h3,
+.hability h3 {
+    text-transform: capitalize;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+.hability-value,
+.personality-value {
+    margin: auto;
+    display: flex;
+    max-width: 100px;
+    justify-content: space-between;
+}
+
+.realizations {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.realization {
+    width: 240px;
+    margin-bottom: 3rem;
+}
+
+.realization h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    width: 100%;
+}
+
+.realization h3 span {
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+.realization p {
+    text-align: justify;
+    font-size: 1.2rem;
+}
+
+footer {
+    min-height: 5rem;
+    margin-bottom: 2rem;
+}
+
+footer address {
+    width: 100%;
+}
+
+footer address dl {
+    width: 100%;
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(auto-fill, 1fr);
+    margin: 0 auto;
+}
+
+footer address dl div {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+footer address dl dt,
+footer address dl dd,
+footer address dl dd a {
+    font-size: 1.2rem;
+}
+
+footer h2 {
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-wrap: wrap;
+    }
+
+    header img {
+        margin: auto;
+        border-radius: 50%;
+        margin-top: 4rem;
+        width: 300px;
+        height: 300px;
+    }
+
+    header .main-info {
+        text-align: center;
+    }
+
+    header .main-info .description p {
+        text-align: center;
+        margin: auto;
+        max-width: 450px;
+    }
+}
+
+@media (max-width: 500px) {
+    main article:nth-child(2) section .min-info,
+    main article:nth-child(2) section .min-info {
+        display: block;
+    }
+
+    main article:nth-child(2) section .min-info i {
+        font-size: 1.2rem;
+    }
+
+    main .cols2-or-rows2 {
+        display: block;
+    }
+
+    main div article {
+        text-align: center;
+        margin: auto;
+    }
+}
+
