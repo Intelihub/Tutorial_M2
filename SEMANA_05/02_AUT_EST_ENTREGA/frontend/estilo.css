@@ -1,0 +1,112 @@
+@charset "utf-8";
+/* CSS Document */
+	* {
+		margin:0;
+		padding:0;
+		box-sizing: border-box;
+	}
+	/*imagens flexiveis*/
+	img {   
+  		max-width: 100%;   
+  		height: auto;  
+	} 
+	body, html{
+		background:#f1f1f1;
+        color: #fff;
+        height: 100%;
+	}
+	#principal{
+		/* Largura máxima */
+		max-width:960px;
+		/* Alinha ao centro */
+		margin:0 auto;
+		background:#fff;
+        height: 100%;
+	}
+    #logo {
+		padding-top: 2vh;
+        width: 100%;
+        height: 15%;
+		padding-bottom: 2vh;
+    }
+	#sidebar{
+		/* Largura */
+		width:25%;
+		/* Alinha à esquerda */
+		float:left;
+        background-color: #32A287;
+        height: 95%;
+	}
+	.interno{
+		padding:10px;
+	}
+	.colunas{
+		padding-bottom: 3vh;
+	}
+	#lateral{
+		padding-top: 5vh;
+		padding-left: 3vw;
+		/* Largura */
+		width:75%;
+		/* Alinha à direita */
+		float:right;
+		background:rgb(224, 224, 224);
+        height: 95%;
+		color: black;
+	}
+	#lateral h2{
+		color: #32A287;
+	}
+    #rodape {
+        width: 100%;
+        height: 5%;
+        clear: both;
+        background-color: #666;
+        text-align: center;
+    }
+	
+	#stars{
+		display:flex;
+		align-items: center;
+	}
+
+	#stars img{
+		height: 10px;
+		width: 10px;
+	}
+/*seletores para desktops*/
+@media screen and (max-width: 1128px) {
+	#sidebar{ 
+	   width: 25%;
+	}
+	#lateral{ 
+	   width: 75%;
+	}
+}
+
+/*seletores para tablets*/
+@media screen and (max-width: 768px) {
+	#sidebar{ 
+	   width: 40%;
+	}
+	#lateral{ 
+	   width: 60%;
+	}
+}
+
+/*seletores para celurares*/
+@media screen and (max-width: 520px) {
+	#sidebar{ 
+	   width: 100%;
+       float: none;
+       height: auto;
+	}
+	#lateral{ 
+	   width: 100%;
+	   float: none;
+       height: auto;
+	}
+	body{
+		overflow:scroll;
+	}
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<title>Tutorial - Layout Responsivo</title>
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+<body>
+  <div id="principal">
+    <div id="sidebar">
+      <div class="interno">    
+        <div id="logo"></div>
+        <h1>Sobre mim</h1>
+        <br><p id="telefone"><b>Celular:</b> +55 99999-9999 </p>
+        <br>
+        <p id="descricao"><b>Descrição:</b></p>
+        <div id="habilidades"></div>
+        <div id="stars">
+        </div>       
+      </div>
+    </div>
+    <div id="lateral">
+      <div class="interno">
+        <h2>Formação</h2>
+        <div class="colunas" id="formacao"></div>
+        <br>
+        <h2>Experiência</h2>
+        <div class="colunas" id="experiencia"></div>
+        <br>
+        <h2>Realizações</h2>
+        <div class="colunas" id="realizacao"></div>
+      </div>
+    </div>
+    <div id="rodape">
+      <p>Todos os direitos reservados.</p>
+    </div>
+  </div>
+</body>
+</html>
+
+<<script>
+  const url = '/cadastrados';
+  var newUrl = '/formacao?id_pessoa=';
+  var id = '';
+  fetch(url)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      const imageElement = document.createElement('img');
+      let info_pessoa = data;
+      let imageUrl;
+      let descricao = '';
+      info_pessoa.map(function(info_pessoa) {
+        id = `${info_pessoa.id_pessoa}`;
+        imageUrl = `${info_pessoa.foto}`;
+        descricao += " " + `${info_pessoa.descricao}`;
+      });
+      newUrl+= id;
+
+      console.log(newUrl);
+      imageElement.src = imageUrl;
+      const container = document.getElementById('logo');
+      container.appendChild(imageElement);
+      document.getElementById("descricao").innerHTML += descricao;
+
+      fetch(newUrl)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        let formacao = data;
+        let forms = '';
+        formacao.map(function(formacao) {
+          forms += "<br><h3>" + `${formacao.nome_curso}` +"</h3> " + `${formacao.ano_inicio}` + " - " + `${formacao.ano_fim}` + "<br><p>" + `${formacao.descricao}` +"</p>" ;
+        });
+        console.log(forms);
+        document.getElementById("formacao").innerHTML += forms;
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+      newUrl = "/experiencia?id_pessoa=" + id;
+      fetch(newUrl)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        let experiencia = data;
+        let exp = '';
+        experiencia.map(function(experiencia) {
+          exp += "<br><h3>" + `${experiencia.cargo}` +"</h3> " + `${experiencia.nome_empresa}` + " " + `${experiencia.ano_inicio}` + " - " /*+ `${formacao.ano_fim}` + */ +"<br><p>" + `${experiencia.descricao}` +"</p>" ;
+        });
+        console.log(exp);
+        document.getElementById("experiencia").innerHTML += exp;
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+
+      newUrl = "/habilidades?id_pessoa=" + id;
+      fetch(newUrl)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        let habilidades = data;
+        let hab = '';
+        let int = '';
+        habilidades.map(function(habilidades) {
+          hab += "<br><h3>" + `${habilidades.nome}` + "</h3>";
+          int = `${habilidades.qualidade}`;
+        });
+        const tag = document.getElementById('stars'); // Retrieve the tag element
+        document.getElementById("habilidades").innerHTML += hab;
+        const content = "<img src='star.png' style='margin: 0 0;'>";
+        let multipliedContent = ''; // Variable to store the multiplied content
+        const separator = ' '; 
+        for (let i = 0; i < int; i++) {
+          multipliedContent += content + separator; // Concatenate the tag's inner HTML content to the multipliedContent variable
+        }
+
+        tag.innerHTML = multipliedContent;
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+
+      newUrl = "/realizacao?id_pessoa=" + id;
+      fetch(newUrl)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        let realizacao = data;
+        let rel = '';
+        realizacao.map(function(realizacao) {
+          rel += "<br><h3>" + `${realizacao.titulo}` +"</h3>" + `${realizacao.ano}` + "<br> <p>" + `${realizacao.descricao}` +"</p>" ;
+        });
+        console.log(rel);
+        document.getElementById("realizacao").innerHTML += rel;
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  })
+  .catch(function(error) {
+    console.log(error);
+  });
+</script>
