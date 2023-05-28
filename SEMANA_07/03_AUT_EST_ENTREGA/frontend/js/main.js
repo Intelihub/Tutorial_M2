@@ -76,7 +76,7 @@ let resumes = {
                                                 responseHTMl += '<div class="number black"></div>';
                                             }
     
-                                            for(let i = 0; i < (ability.ability_value - 5); i++) {
+                                            for(let i = 0; i < (5 - ability.ability_value); i++) {
                                                 responseHTMl += '<div class="number border"></div>';
                                             }
     
@@ -121,7 +121,7 @@ let resumes = {
                                                 responseHTMl += '<div class="number black"></div>';
                                             }
     
-                                            for(let i = 0; i < (item.attr_value - 5); i++) {
+                                            for(let i = 0; i < (5 - item.attr_value); i++) {
                                                 responseHTMl += '<div class="number border"></div>';
                                             }
     
