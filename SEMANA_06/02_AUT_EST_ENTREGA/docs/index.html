@@ -13,13 +13,14 @@
   <div id="principal">
     <div id="sidebar">
       <div id="interno">    
-        <div id="logo"></div>
+        <div id="logo"><img src="https://media.licdn.com/dms/image/D4D03AQG_T8Nvtk_lNg/profile-displayphoto-shrink_800_800/0/1677155881970?e=2147483647&v=beta&t=r01ehocgVJA6u57nilyHwwCJRS8UqVKHOhk4NNrgV_M"></div>
         <h1>Sobre mim</h1>
         <br><p id="telefone"><b>Celular:</b> +55 99999-9999 </p>
         <br>
-        <p id="descricao"><b>Descrição:</b></p>
-        <div id="habilidades"></div>
+        <p id="descricao"><b>Descrição: </b>I'm a Software Engineer student at a Inteli, that takes places in brazil. I'm on my firse year of my graduation, however I have made a technical course which I learned C sharp, C/C++, Python and a little of Java. Beside those languages, I have study MySql and Html. Unfortunatelly, I do not have an project yet, however I'm working on one. Probably posting it soon.</p>
+        <div id="habilidades"><br><h2>Python</h2></div>
         <div id="stars">
+          <img src="star.png"><img src="star.png"><img src="star.png"><img src="star.png"><img src="star.png">
         </div>       
       </div>
     </div>
@@ -28,13 +29,13 @@
         <input type="checkbox" id="darkModeToggle">
         <label for="darkModeToggle">Dark Mode</label>
         <h2>Formação</h2>
-        <div class="colunas" id="formacao"></div>
+        <div class="colunas" id="formacao"><br><h3>Técnico em informática </h3> 2020 - 2022 <br><p>Diploma técnico em informática no colégio técnico de Limeira</p></div>
         <br>
         <h2>Experiência</h2>
-        <div class="colunas" id="experiencia"></div>
+        <div class="colunas" id="experiencia">"<br><h3>Gerente de Segurança</h3> BTG 2023 - <br><p>Cria e administra as métricas e indicadores da área de operações de segurança. Gerencia as oportunidades de aplicação de tecnologia e interage com outras áreas de maneira a assegurar a segurança das informações da empresa.</p> </div>
         <br>
         <h2>Realizações</h2>
-        <div class="colunas" id="realizacao"></div>
+        <div class="colunas" id="realizacao"><br><h3>Bolsa Integral Inteli</h3>2023<br> <p>Consegui uma bolsa de estudos integral para cursar ciência da computação no Inteli.</p></div>
         <h2>Redes Sociais</h2>
         <button id="mais">+</button>
         <div class="redes" style="display: none;">
@@ -83,9 +84,7 @@
         descricao += " " + `${info_pessoa.descricao}`;
       });
       newUrl+= id;
-      console.log(descricao);
-      console.log(imageUrl);
-      console.log(newUrl);
+
       imageElement.src = imageUrl;
       const container = document.getElementById('logo');
       container.appendChild(imageElement);
