@@ -3,13 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-	<title>Tutorial - Layout Responsivo</title>
+	<title>Currículo</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="estilo.css">
 </head>
+
+<!-- Rodar com o node!-->
 <body>
   <div id="principal">
     <div id="sidebar">
-      <div class="interno">    
+      <div id="interno">    
         <div id="logo"></div>
         <h1>Sobre mim</h1>
         <br><p id="telefone"><b>Celular:</b> +55 99999-9999 </p>
@@ -21,7 +24,9 @@
       </div>
     </div>
     <div id="lateral">
-      <div class="interno">
+      <div class="interno" >
+        <input type="checkbox" id="darkModeToggle">
+        <label for="darkModeToggle">Dark Mode</label>
         <h2>Formação</h2>
         <div class="colunas" id="formacao"></div>
         <br>
@@ -30,6 +35,11 @@
         <br>
         <h2>Realizações</h2>
         <div class="colunas" id="realizacao"></div>
+        <h2>Redes Sociais</h2>
+        <button id="mais">+</button>
+        <div class="redes" style="display: none;">
+          <a href="https://github.com/itsVasconcellos"><img src="github.png" style="width: 5rem; height: 5rem;"></a>
+        </div>
       </div>
     </div>
     <div id="rodape">
@@ -38,8 +48,23 @@
   </div>
 </body>
 </html>
-
-<<script>
+<script>
+  $(document).ready(function() {
+  $('#darkModeToggle').on('change', function() {
+    if ($(this).is(':checked')) {
+      $('body').addClass('dark_mode');
+    } else {
+      $('body').removeClass('dark_mode');
+    }
+  })});
+  $(document).ready(function(){
+    $("#mais").click(function(){
+    console.log("bannaa");
+    $(".redes").toggle();
+  })});
+</script>
+<!-- Script para carregar itens -->
+<script>
   const url = '/cadastrados';
   var newUrl = '/formacao?id_pessoa=';
   var id = '';
@@ -58,8 +83,6 @@
         descricao += " " + `${info_pessoa.descricao}`;
       });
       newUrl+= id;
-
-      <a href><p>Teste</p></a>
 
       console.log(newUrl);
       imageElement.src = imageUrl;
