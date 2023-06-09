@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<title>Currículo</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="estilo.css">
+  <script src="script.js"></script>
+</head>
+
+<!-- Rodar com o node!-->
+<body>
+  <div id="principal">
+    <div id="sidebar">
+      <div id="interno">    
+        <div id="logo"></div>
+        <h1>Sobre mim</h1>
+        <br><p id="telefone"><b>Celular:</b> +55 99999-9999 </p>
+        <br>
+        <p id="descricao"><b>Descrição:</b></p>
+        <div id="habilidades"></div>
+        <div id="stars">
+        </div>       
+      </div>
+    </div>
+    <div id="lateral">
+      <div class="interno" >
+        <input type="checkbox" id="darkModeToggle">
+        <label for="darkModeToggle">Dark Mode</label>
+        <h2>Formação</h2>
+        <div class="colunas" id="formacao"></div>
+        <br>
+        <h2>Experiência</h2>
+        <div class="colunas" id="experiencia"></div>
+        <br>
+        <h2>Realizações</h2>
+        <div class="colunas" id="realizacao"></div>
+        <h2>Redes Sociais</h2>
+        <button id="mais">+</button>
+        <div class="redes" style="display: none;">
+          <a href="https://github.com/itsVasconcellos"><img src="github.png" style="width: 5rem; height: 5rem;"></a>
+        </div>
+      </div>
+    </div>
+    <div id="rodape">
+      <p>Todos os direitos reservados.</p>
+    </div>
+  </div>
+</body>
+</html>
+<script>
+  $(document).ready(function() {
+  $('#darkModeToggle').on('change', function() {
+    if ($(this).is(':checked')) {
+      $('body').addClass('dark_mode');
+    } else {
+      $('body').removeClass('dark_mode');
+    }
+  })});
+  $(document).ready(function(){
+    $("#mais").click(function(){  
+    $(".redes").toggle();
+  })});
+</script>
+<!-- Script para carregar itens -->
