@@ -218,6 +218,7 @@ hr{
         padding: 1rem 1.8rem;
         margin-right: 0.7rem;
     }
+}
 
 @media screen and (max-width: 920px){
     h4{
@@ -283,4 +284,4 @@ hr{
         padding: 1rem 1.8rem;
         margin-right: 0.7rem;
     }
-}}
+}
