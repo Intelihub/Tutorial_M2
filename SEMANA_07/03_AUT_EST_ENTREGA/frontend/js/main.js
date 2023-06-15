@@ -42,7 +42,7 @@ function changeActualSlide(index, carousel) {
 let resumes = {
     list() {
         $.ajax({
-            url: (apiUrl + '/get-resumes'),
+            url: ('/get-resumes'),
             type: 'GET',
             success: data => {
                 let responseHTMl = '';

@@ -4,7 +4,8 @@
   "description": "A backend that send the storaged resumes in database",
   "main": "backend/index.js",
   "scripts": {
-    "test": "nodemon backend/index.js"
+    "test": "nodemon backend/index.js",
+    "main": "node backend/index.js"
   },
   "repository": {
     "type": "git",

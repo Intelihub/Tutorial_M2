@@ -265,6 +265,6 @@ app.get('/delete-personality_attr', urlencodedParser, async (req, res) => {
 	})
 });
 
-app.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+app.listen(process.env.PORT, () => {
+  console.log(`Server running`);
 });
