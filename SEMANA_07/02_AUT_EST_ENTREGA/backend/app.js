@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 const sqlite3 = require('sqlite3').verbose();
-const DBPATH = './data/curriculo.db';
+const DBPATH = 'data/curriculo.db';
 
 const hostname = '127.0.0.1';
 const port = 3000;
