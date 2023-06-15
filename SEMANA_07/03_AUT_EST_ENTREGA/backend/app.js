@@ -3,14 +3,14 @@ const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 const sqlite3 = require('sqlite3').verbose();
-const DBPATH = 'data/db_curriculum.db';
+const DBPATH = 'SEMANA_07/03_AUT_EST_ENTREGA/data/db_curriculum.db';
 
 const hostname = '127.0.0.1';
 const port = 3000;
 const app = express();
 
 /* Colocar toda a parte estática no frontend */
-app.use(express.static("frontend/"));
+app.use(express.static("SEMANA_07/03_AUT_EST_ENTREGA/frontend/"));
 
 /* Definição dos endpoints */
 /******** CRUD ************/

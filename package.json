@@ -2,9 +2,10 @@
   "name": "curriculum_backend",
   "version": "1.0.0",
   "description": "A backend that send the storaged resumes in database",
-  "main": "backend/app.js",
+  "main": "SEMANA_07/03_AUT_EST_ENTREGA/backend/app.js",
   "scripts": {
-    "test": "nodemon backend/app.js"
+    "test": "nodemon SEMANA_07/03_AUT_EST_ENTREGA/backend/app.js",
+    "start": "node SEMANA_07/03_AUT_EST_ENTREGA/backend/app.js"
   },
   "repository": {
     "type": "git",
