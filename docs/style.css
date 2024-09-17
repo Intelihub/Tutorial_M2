@@ -1,0 +1,33 @@
+body{
+    background-color: azure;
+}
+h1{
+    text-align: center;
+    color: darkslategrey;
+    font-size: 70px;
+}
+h2{
+    text-align: center;
+    color: darkslategray;
+    font-size: 50px;
+}
+h3{
+    color: darkslategray;
+    font-size: 40px;
+}
+p{
+    font-size: 30px;
+}
+
+img{
+    border-radius: 50%;
+}
+.dback{
+    background-color: aquamarine;
+}
+.center{
+    text-align: center;
+}
+.font_40{
+    font-size: 40px;
+}

@@ -1,0 +1,15 @@
+{
+  "name": "curriculo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "backend/crud.js",
+  "scripts": {
+    "start": "node backend/crud.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express":"^4.18.2",
+    "sqlite3":"^5.1.6"
+  }
+}
